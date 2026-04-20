@@ -145,12 +145,6 @@ variable {
 }
 
 variable {
-  name = update_check
-  value = 
-  reset_on_launch = true
-}
-
-variable {
   name = world_create_cheats
   value = on
   reset_on_launch = false
@@ -159,12 +153,6 @@ variable {
 variable {
   name = hotbar
   value = false
-  reset_on_launch = false
-}
-
-variable {
-  name = version
-  value = 1.0.7
   reset_on_launch = false
 }
 
