@@ -2,7 +2,7 @@ PlayerEvents.chat(event => {
     const { player, message, server } = event;
 
     // FieldGuide.getProgress(player).getUnlockedEntries().forEach(entry => {
-    //     player.tell(entry)
+    //     player.tell(entry) return;
     // })
 
     const team = getTeam(player);
