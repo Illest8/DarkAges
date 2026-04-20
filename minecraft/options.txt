@@ -195,7 +195,7 @@ key_key.raws_visual_keybinder.open_screen:key.keyboard.f10
 key_key.mount_jump:key.keyboard.f7
 key_create.keyinfo.toolmenu:key.keyboard.left.alt
 key_create.keyinfo.toolbelt:key.keyboard.left.alt
-key_create.keyinfo.ponder:key.keyboard.w
+key_create.keyinfo.ponder:key.keyboard.keypad.9
 key_key.irons_spellbooks.spell_wheel:key.keyboard.v
 key_key.irons_spellbooks.spell_wheel_toggle:key.keyboard.unknown
 key_key.irons_spellbooks.spellbook_cast:key.keyboard.c
