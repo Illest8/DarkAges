@@ -1,4 +1,4 @@
-
+//update
 ServerEvents.highPriorityData(event => {
 
     let registry = global.shieldRegistry;
