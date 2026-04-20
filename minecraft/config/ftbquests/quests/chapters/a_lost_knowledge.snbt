@@ -1,0 +1,74 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "a_lost_knowledge"
+	group: "3D73B3C61F14CDAB"
+	icon: "irons_spellbooks:ancient_knowledge_fragment"
+	id: "7207E98BBCB93999"
+	images: [{
+		height: 10.0d
+		image: "darkages:textures/menu/quest_panel.png"
+		order: 1
+		rotation: 0.0d
+		width: 10.0d
+		x: 0.2d
+		y: -7.0d
+	}]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["I spoke with the scholar about Ancient Knowledge fragments. They could potentially hold a greater power within them."]
+			id: "3D28EF6785ED4772"
+			invisible: true
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "1AC182E51EDA8DF7"
+				title: "Speak with the scholar"
+				type: "custom"
+			}]
+			x: 0.2d
+			y: -9.2d
+		}
+		{
+			dependencies: ["3D28EF6785ED4772"]
+			disable_toast: true
+			id: "7385E51547139D51"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "supplementaries:textures/map_marker/ancient_city.png"
+					}
+				}
+				id: "2DFE5A5DF0D65CE0"
+				structure: "minecraft:ancient_city"
+				title: "Travel to an Ancient City"
+				type: "structure"
+			}]
+			x: 0.2d
+			y: -8.0d
+		}
+		{
+			dependencies: ["7385E51547139D51"]
+			id: "600E6F9337AA277E"
+			tasks: [{
+				count: 8L
+				id: "2A4B051A88E3DD4E"
+				item: "irons_spellbooks:ancient_knowledge_fragment"
+				title: "Collect 8 fragments"
+				type: "item"
+			}]
+			x: 0.2d
+			y: -6.8d
+		}
+	]
+	title: "&3A Lost Knowledge"
+}

@@ -1,0 +1,119 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "dark_tower"
+	group: "3D73B3C61F14CDAB"
+	icon: {
+		Count: 1
+		id: "ftbquests:custom_icon"
+		tag: {
+			Icon: "darkages:icons/skills/demonic_ascension"
+		}
+	}
+	id: "03AAD3F81C67B2DC"
+	images: [
+		{
+			height: 10.0d
+			image: "create:textures/gui/clipboard.png"
+			order: 1
+			rotation: 0.0d
+			width: 10.0d
+			x: 0.2d
+			y: -7.0d
+		}
+		{
+			color: 16771566
+			height: 3.0d
+			image: "iceandfire:textures/gui/main_menu/drawing_4.png"
+			order: 2
+			rotation: 0.0d
+			width: 3.0d
+			x: -1.6d
+			y: -8.6d
+		}
+	]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["412E094C7FF81558"]
+			description: ["I've traveled to the base of a tower in the woods. It appears to be filled with monsters."]
+			id: "10488DB630AC2E65"
+			invisible: true
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "magistuarmoryaddon:item/dark_codpiece_decoration"
+					}
+				}
+				id: "2374F2C3C40F45E6"
+				structure: "darkages:overworld/tower_of_the_undead"
+				title: "Find a Dark Tower"
+				type: "structure"
+			}]
+			x: 0.2d
+			y: -9.2d
+		}
+		{
+			dependencies: ["10488DB630AC2E65"]
+			description: ["Rivanna told me to come back and talk to her in Verden if I found a Dark Tower."]
+			id: "295450B19A7DC6FA"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "70428CCCC3788167"
+				title: "Speak to Rivanna in Verden"
+				type: "custom"
+			}]
+			title: "The Dark Tower"
+			x: 0.2d
+			y: -8.0d
+		}
+		{
+			dependencies: ["295450B19A7DC6FA"]
+			id: "03C401979FDE5B80"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "darkages:copper_greatsword"
+					tag: {
+						Damage: 0
+					}
+				}
+				id: "5B1B0838CD31E6D9"
+				title: "Clear the tower"
+				type: "custom"
+			}]
+			x: 0.2d
+			y: -6.8d
+		}
+		{
+			dependencies: ["03C401979FDE5B80"]
+			id: "76316717D51AB960"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "5FC4816279C2BEC4"
+				title: "Return to Rivanna"
+				type: "custom"
+			}]
+			x: 0.2d
+			y: -5.6d
+		}
+	]
+	title: "&3Dark Tower"
+}

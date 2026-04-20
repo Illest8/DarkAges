@@ -1,0 +1,171 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = %fancymenu:universal_layout%
+  render_custom_elements_behind_vanilla = false
+  last_edited_time = 1771906562319
+  is_enabled = true
+  randommode = false
+  randomgroup = 1
+  randomonlyfirsttime = false
+  layout_index = 0
+  [loading_requirement_container_meta:5d43cc25-de80-44f0-a8bc-241555bc27ec-1771906486683] = [groups:][instances:]
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = false
+}
+
+scroll_list_customization {
+  preserve_scroll_list_header_footer_aspect_ratio = true
+  render_scroll_list_header_shadow = true
+  render_scroll_list_footer_shadow = true
+  show_scroll_list_header_footer_preview_in_editor = false
+  repeat_scroll_list_header_texture = false
+  repeat_scroll_list_footer_texture = false
+  show_screen_background_overlay_on_custom_background = false
+  apply_vanilla_background_blur = false
+}
+
+layout_action_executable_blocks {
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/cursor.png
+  hotspot_x = 0
+  hotspot_y = 0
+  editor_preview_mode = false
+  element_type = cursor
+  instance_identifier = 9496a688-b8e1-49a0-a81f-0eabef431846-1763337459901
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = true
+  auto_sizing_base_screen_width = 1920
+  auto_sizing_base_screen_height = 1060
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = -31
+  y = -47
+  width = 126
+  height = 126
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 947c850d-58d1-4d40-addf-8e71f5d0fbde-1757668872360
+  [loading_requirement_container_meta:947c850d-58d1-4d40-addf-8e71f5d0fbde-1757668872360] = [groups:][instances:92d57641-9f33-4c8c-996f-373981c58809-1757669142493;51b11aa5-d267-4e9d-a9cd-623e8bf4a652-1757670981070;cbb6a51b-e7ff-4e50-b0b3-4737b2576ebb-1768089778483;]
+  [loading_requirement:is_key_pressed][requirement_mode:if_not][req_id:92d57641-9f33-4c8c-996f-373981c58809-1757669142493] = 340
+  [loading_requirement:mouse_click][requirement_mode:if_not][req_id:51b11aa5-d267-4e9d-a9cd-623e8bf4a652-1757670981070] = right
+  [loading_requirement:fancymenu_visibility_requirement_is_element_hovered][requirement_mode:if_not][req_id:cbb6a51b-e7ff-4e50-b0b3-4737b2576ebb-1768089778483] = 4ae17852-0f28-426f-86d8-613c1d580b9d-1768089615500
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+  rotation_degrees = 0.0
+  advanced_rotation_mode = false
+  vertical_tilt_degrees = 0.0
+  advanced_vertical_tilt_mode = false
+  horizontal_tilt_degrees = 0.0
+  advanced_horizontal_tilt_mode = false
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/grabbing.png
+  hotspot_x = 0
+  hotspot_y = 0
+  editor_preview_mode = false
+  element_type = cursor
+  instance_identifier = e9f7bdb0-add6-4463-8563-233ac89f7d2e-1763337459901
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = true
+  auto_sizing_base_screen_width = 1920
+  auto_sizing_base_screen_height = 1060
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = -180
+  y = -58
+  width = 138
+  height = 138
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 22d57b11-d3c9-4e2b-aa7e-3caeae4ebf29-1757669041850
+  [loading_requirement_container_meta:22d57b11-d3c9-4e2b-aa7e-3caeae4ebf29-1757669041850] = [groups:][instances:604d28d1-3aa6-46aa-8ef8-594d4c7dc35a-1757669046718;2c6385ff-78e4-4627-ad14-b78673cba3e1-1757669058323;]
+  [loading_requirement:mouse_click][requirement_mode:if][req_id:604d28d1-3aa6-46aa-8ef8-594d4c7dc35a-1757669046718] = right
+  [loading_requirement:is_key_pressed][requirement_mode:if_not][req_id:2c6385ff-78e4-4627-ad14-b78673cba3e1-1757669058323] = 340
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+  rotation_degrees = 0.0
+  advanced_rotation_mode = false
+  vertical_tilt_degrees = 0.0
+  advanced_vertical_tilt_mode = false
+  horizontal_tilt_degrees = 0.0
+  advanced_horizontal_tilt_mode = false
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/cursor_shift.png
+  hotspot_x = 0
+  hotspot_y = 0
+  editor_preview_mode = false
+  element_type = cursor
+  instance_identifier = c0964cab-a033-40dd-9379-6651c974b539-1763337459902
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = true
+  auto_sizing_base_screen_width = 1920
+  auto_sizing_base_screen_height = 1060
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = 95
+  y = -56
+  width = 132
+  height = 132
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 017dfcd1-7a41-4d36-92ec-3af654f59e9a-1757669165491
+  [loading_requirement_container_meta:017dfcd1-7a41-4d36-92ec-3af654f59e9a-1757669165491] = [groups:][instances:af8010b9-9646-4a22-8346-e694eb569e63-1757669185151;]
+  [loading_requirement:is_key_pressed][requirement_mode:if][req_id:af8010b9-9646-4a22-8346-e694eb569e63-1757669185151] = 340
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+  rotation_degrees = 0.0
+  advanced_rotation_mode = false
+  vertical_tilt_degrees = 0.0
+  advanced_vertical_tilt_mode = false
+  horizontal_tilt_degrees = 0.0
+  advanced_horizontal_tilt_mode = false
+}
+

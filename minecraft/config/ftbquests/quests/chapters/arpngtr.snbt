@@ -1,0 +1,62 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "arpngtr"
+	group: "3499AF304C9E0F06"
+	id: "048E48F784753D6B"
+	images: [{
+		height: 10.0d
+		hover: ["Main Quests"]
+		image: "create:textures/gui/clipboard.png"
+		rotation: 0.0d
+		width: 10.0d
+		x: -0.2d
+		y: -0.4d
+	}]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			id: "29C45E7E97DBA153"
+			invisible: true
+			optional: true
+			shape: "circle"
+			tasks: [{
+				id: "3C680ABD6391E535"
+				title: "Part1"
+				type: "custom"
+			}]
+			x: -1.2d
+			y: -2.0d
+		}
+		{
+			dependencies: ["29C45E7E97DBA153"]
+			description: ["Travel to the frosted prison."]
+			hide_details_until_startable: true
+			id: "03C9D3C667772B64"
+			tasks: [{
+				icon: "minecraft:iron_bars"
+				id: "5CC8A38DF52225ED"
+				structure: "cataclysm:frosted_prison"
+				title: "Frosty Bars"
+				type: "structure"
+			}]
+			x: 0.6d
+			y: -0.8d
+		}
+		{
+			dependencies: ["03C9D3C667772B64"]
+			id: "029D8C0136DACC1A"
+			tasks: [{
+				entity: "cataclysm:aptrgangr"
+				id: "564B230D942B5334"
+				title: "Slay Aptrgangr"
+				type: "kill"
+				value: 1L
+			}]
+			x: -1.2d
+			y: 0.6d
+		}
+	]
+	title: "Arpngtr"
+}

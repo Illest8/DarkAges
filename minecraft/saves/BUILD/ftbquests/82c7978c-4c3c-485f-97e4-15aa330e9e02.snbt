@@ -1,0 +1,12 @@
+{
+	version: 1
+	uuid: "82c7978c4c3c485f97e415aa330e9e02"
+	name: "Caulified#82c7978c"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	player_data: { }
+}

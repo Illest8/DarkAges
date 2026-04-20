@@ -1,0 +1,25 @@
+{
+	always_invisible: true
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "placeholders"
+	group: "4FF753FF21FE3CF6"
+	id: "2196E2422FE0D639"
+	order_index: 2
+	quest_links: [ ]
+	quests: [{
+		id: "282F25FB7854C48B"
+		invisible: true
+		optional: true
+		shape: "circle"
+		tasks: [{
+			id: "6979608DD50342A2"
+			structure: "darkages:overworld/thalor"
+			title: "Find Thalor"
+			type: "structure"
+		}]
+		x: -1.6d
+		y: -2.6d
+	}]
+	title: "Placeholders"
+}

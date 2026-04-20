@@ -1,0 +1,607 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/xp_icon.png",
+            "ascent": 11,
+            "height": 15,
+            "chars": [
+                "\uE222"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/health_icon.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE223"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/atd.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/ats.png",
+            "ascent": 9,
+            "height": 12,
+            "chars": [
+                "\uE002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/star.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/durability.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/iron_pickaxe.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE006"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/bundle.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE007"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/heart.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE008"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/sword.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE010"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/mouse.right.png",
+            "ascent": 7,
+            "height": 9,
+            "chars": [
+                "\uE011"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/mouse.left.png",
+            "ascent": 7,
+            "height": 9,
+            "chars": [
+                "\uE012"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.z.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE915"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.r.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE013"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.k.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE113"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.l.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE114"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.c.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE213"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.v.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE313"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.g.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE413"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.x.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE513"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.h.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE613"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.m.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE713"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.b.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE813"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.p.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE913"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.u.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE914"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.tab.png",
+            "ascent": 8,
+            "height": 9,
+            "chars": [
+                "\uE014"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/chat.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE015"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.left.shift.png",
+            "ascent": 8,
+            "height": 9,
+            "chars": [
+                "\uE016"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.left.control.png",
+            "ascent": 8,
+            "height": 9,
+            "chars": [
+                "\uE017"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/keys/keyboard.left.alt.png",
+            "ascent": 8,
+            "height": 9,
+            "chars": [
+                "\uE117"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/enchanted_book.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE018"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/pickup.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE019"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/arrow_dmg.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE020"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/info.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE021"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:mob_effect/luck.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE022"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/bow.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE023"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "irons_spellbooks:item/wandering_magician_helmet.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE024"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/magic.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE025"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/cdr.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE325"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/main_quest.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE026"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:font/raid.png",
+            "ascent": 13,
+            "height": 52,
+            "chars": [
+                "\uE903"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/veilkeeper.png",
+            "ascent": 12,
+            "height": 28,
+            "chars": [
+                "\uE905"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:font/wither.png",
+            "ascent": 13,
+            "height": 52,
+            "chars": [
+                "\uE906"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:font/enderdragon.png",
+            "ascent": 13,
+            "height": 52,
+            "chars": [
+                "\uE907"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "mca:house.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE799"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/impact_guard.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE026"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/step.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE027"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/blaze_rod.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE100"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "irons_spellbooks:item/frozen_bone.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE101"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/emerald.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE102"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "irons_spellbooks:item/blood_vial.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE103"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "irons_spellbooks:item/divine_pearl.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE104"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/lightning_bottle.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE105"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/ender_pearl.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE106"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:item/poisonous_potato.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE107"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "irons_spellbooks:item/eldritch_manuscript.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE108"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "apotheosis:items/common_material.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE125"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "apotheosis:items/uncommon_material.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE126"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "apotheosis:items/rare_material.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE127"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "apotheosis:items/epic_material.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE128"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/mythic_material.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE129"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/combos.png",
+            "ascent": 9,
+            "height": 22,
+            "chars": [
+                "\uE091"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/coin.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE444"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/sprint.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE445"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/jump.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE446"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/lands.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE447"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "darkages:icons/block.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                "\uE448"
+            ]
+        }
+    ]
+}

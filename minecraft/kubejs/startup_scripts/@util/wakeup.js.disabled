@@ -1,0 +1,19 @@
+// let nightSkipped = false;
+
+// ForgeEvents.onEvent('net.minecraftforge.event.level.SleepFinishedTimeEvent', event => {
+//     nightSkipped = true;
+// });
+
+// ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerWakeUpEvent', event => {
+//     const player = event.entity;
+//     if (!player.isPlayer()) return;
+
+//     console.log(Object.keys(player.getServer()))
+
+//     if (event.wakeImmediately()) return;
+
+//     if (nightSkipped && global.$check("quest", player, "prison", true)) {
+//         player.getServer().runCommandSilent(`execute as ${player.username} run ql quests:main/first objective set`)
+//         nightSkipped = false
+//     }
+// });

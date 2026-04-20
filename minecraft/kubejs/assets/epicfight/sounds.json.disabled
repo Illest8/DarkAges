@@ -1,0 +1,306 @@
+{
+    "entity.hit.blunt": {
+        "replace": true,
+        "subtitle": "entity.hit.blunt",
+        "sounds": [
+            {
+                "name": "epicfight:entity/hit/blunt_hit1",
+                "volume": 1.0
+            },
+            {
+                "name": "epicfight:entity/hit/blunt_hit2",
+                "volume": 1.0
+            },
+            {
+                "name": "epicfight:entity/hit/blunt_hit3",
+                "volume": 1.0
+            }
+        ]
+    },
+    "entity.hit.blunt_hard": {
+        "replace": true,
+        "subtitle": "entity.hit.blunt_hard",
+        "sounds": [
+            {
+                "name": "epicfight:entity/hit/blunt_hit_hard",
+                "volume": 1.0
+            }
+        ]
+    },
+    "entity.hit.blade": {
+        "replace": true,
+        "subtitle": "entity.hit.blade",
+        "sounds": [
+            {
+                "name": "epicfight:entity/hit/blade_hit1",
+                "volume": 1.0,
+                "attenuation_distance": 1
+            },
+            {
+                "name": "epicfight:entity/hit/blade_hit2",
+                "volume": 1.0,
+                "attenuation_distance": 1
+            },
+            {
+                "name": "epicfight:entity/hit/blade_hit3",
+                "volume": 1.0,
+                "attenuation_distance": 1
+            }
+        ]
+    },
+    "entity.hit.clash": {
+        "replace": true,
+        "subtitle": "entity.hit.clash",
+        "sounds": [
+            {
+                "name": "epicfight:entity/hit/clash",
+                "volume": 1.0
+            }
+        ]
+    },
+    "entity.hit.eviscerate": {
+        "replace": true,
+        "subtitle": "entity.hit.eviscerate",
+        "sounds": [
+            {
+                "name": "epicfight:entity/hit/eviscerate",
+                "volume": 1.0
+            }
+        ]
+    },
+    "entity.hit.blade_rush_last": {
+        "replace": true,
+        "subtitle": "entity.hit.blade_rush_last",
+        "sounds": [
+            {
+                "name": "darkages:tempest",
+                "pitch": 1,
+                "volume": 1.0
+            }
+        ]
+    },
+    "entity.weapon.whoosh": {
+        "replace": true,
+        "subtitle": "entity.weapon.whoosh",
+        "sounds": [
+            {
+                "name": "epicfight:entity/weapon/whoosh",
+                "volume": 1.0,
+                "attenuation_distance": 1
+            }
+        ]
+    },
+    "entity.weapon.whoosh_hard": {
+        "replace": true,
+        "subtitle": "entity.weapon.whoosh_hard",
+        "sounds": [
+            {
+                "name": "epicfight:entity/weapon/whoosh_hard",
+                "volume": 1.0,
+                "attenuation_distance": 1
+            }
+        ]
+    },
+    "entity.weapon.whoosh_small": {
+        "replace": true,
+        "subtitle": "entity.weapon.whoosh_small",
+        "sounds": [
+            {
+                "name": "epicfight:entity/weapon/whoosh_small",
+                "volume": 1.0
+            }
+        ]
+    },
+    "entity.weapon.whoosh_sharp": {
+        "replace": true,
+        "subtitle": "entity.weapon.whoosh_sharp",
+        "sounds": [
+            {
+                "name": "epicfight:entity/weapon/whoosh_sharp",
+                "volume": 1.0,
+                "attenuation_distance": 1
+            }
+        ]
+    },
+    "entity.weapon.whoosh_rod": {
+        "replace": true,
+        "subtitle": "entity.weapon.whoosh_rod",
+        "sounds": [
+            {
+                "name": "epicfight:entity/weapon/whoosh_rod",
+                "volume": 1.0
+            }
+        ]
+    },
+    "entity.weapon.sword_in": {
+        "replace": true,
+        "subtitle": "entity.weapon.sword_in",
+        "sounds": [
+            {
+                "name": "epicfight:entity/weapon/sword_in",
+                "volume": 1.0,
+                "attenuation_distance": 1
+            }
+        ]
+    },
+    "entity.enderdragon.dragon_breath": {
+        "replace": true,
+        "subtitle": "entity.enderdragon.dragon_breath",
+        "sounds": [
+            {
+                "name": "epicfight:entity/enderdragon/dragon_breath"
+            }
+        ]
+    },
+    "entity.enderdragon.dragon_breath_finale": {
+        "replace": true,
+        "subtitle": "entity.enderdragon.dragon_breath_finale",
+        "sounds": [
+            {
+                "name": "epicfight:entity/enderdragon/dragon_breath_finale"
+            }
+        ]
+    },
+    "entity.enderdragon.dragon_crystal_link": {
+        "replace": true,
+        "subtitle": "entity.enderdragon.dragon_crystal_link",
+        "sounds": [
+            {
+                "name": "epicfight:entity/enderdragon/dragon_crystal_link"
+            }
+        ]
+    },
+    "entity.wither.wither_spell_armor": {
+        "replace": true,
+        "subtitle": "entity.wither.wither_spell_armor",
+        "sounds": [
+            {
+                "name": "epicfight:entity/wither/wither_spell_armor"
+            }
+        ]
+    },
+    "sfx.ground_slam_small": {
+        "replace": true,
+        "subtitle": "sfx.ground_slam_small",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/ground_slam_small"
+            }
+        ]
+    },
+    "sfx.ground_slam": {
+        "replace": true,
+        "subtitle": "sfx.ground_slam",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/ground_slam",
+                "volume": 1.0
+            }
+        ]
+    },
+    "sfx.buzz": {
+        "replace": true,
+        "subtitle": "sfx.buzz",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/buzz",
+                "volume": 1.0
+            }
+        ]
+    },
+    "sfx.laser_blast": {
+        "replace": true,
+        "subtitle": "sfx.laser_blast",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/laser_blast",
+                "volume": 1.0
+            }
+        ]
+    },
+    "sfx.neutralize_mobs": {
+        "replace": true,
+        "subtitle": "sfx.neutralize_mobs",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/neutralize_mobs",
+                "volume": 0.1,
+                "attenuation_distance": 1
+            }
+        ]
+    },
+    "sfx.neutralize_bosses": {
+        "replace": true,
+        "subtitle": "sfx.neutralize_bosses",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/neutralize_bosses",
+                "volume": 1.0
+            }
+        ]
+    },
+    "sfx.nether_star_glitter": {
+        "replace": true,
+        "subtitle": "sfx.nether_star_glitter",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/nether_star_glitter"
+            }
+        ]
+    },
+    "sfx.entity_move": {
+        "replace": true,
+        "subtitle": "sfx.entity_move",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/entity_move"
+            }
+        ]
+    },
+    "sfx.big_entity_move": {
+        "replace": true,
+        "subtitle": "sfx.big_entity_move",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/big_entity_move"
+            }
+        ]
+    },
+    "sfx.no_sound": {
+        "replace": true,
+        "subtitle": "sfx.no_sound",
+        "sounds": [
+            {
+                "name": "epicfight:sfx/no_sound"
+            }
+        ]
+    },
+    "skill.forbidden_strength": {
+        "replace": true,
+        "subtitle": "skill.forbidden_strength",
+        "sounds": [
+            {
+                "name": "epicfight:entity/skill/forbidden_strength"
+            }
+        ]
+    },
+    "skill.roll": {
+        "replace": true,
+        "subtitle": "skill.roll",
+        "sounds": [
+            {
+                "name": "epicfight:entity/skill/roll",
+                "volume": 1.0
+            }
+        ]
+    },
+    "skill.rocket_jump": {
+        "replace": true,
+        "subtitle": "skill.rocket_jump",
+        "sounds": [
+            {
+                "name": "epicfight:entity/skill/rocket_jump"
+            }
+        ]
+    }
+}

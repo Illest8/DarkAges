@@ -1,0 +1,76 @@
+{
+	always_invisible: true
+	autofocus_id: "7761BF9771390928"
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "character"
+	group: ""
+	icon: {
+		Count: 1
+		id: "ftbquests:custom_icon"
+		tag: {
+			Icon: "darkages:icons/choose_class"
+		}
+	}
+	id: "56C37C462B070C33"
+	images: [
+		{
+			height: 10.0d
+			image: "create:textures/gui/clipboard.png"
+			order: 1
+			rotation: 0.0d
+			width: 10.0d
+			x: 0.2d
+			y: -6.6d
+		}
+		{
+			height: 1.0d
+			image: "darkages:icons/choose_class_old"
+			order: 2
+			rotation: 0.0d
+			width: 0.8d
+			x: 1.8d
+			y: -8.6d
+		}
+	]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "hexerei:textures/book/5.png"
+				}
+			}
+			id: "7761BF9771390928"
+			invisible: true
+			optional: true
+			shape: "circle"
+			tasks: [{
+				id: "445A34228F720821"
+				title: "Reach Level 5"
+				type: "custom"
+			}]
+			x: 0.0d
+			y: -8.6d
+		}
+		{
+			dependencies: ["7761BF9771390928"]
+			id: "7C68DF9DB69AC7AE"
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: "apotheosis:common_material"
+				id: "64A46AD735FEE9E9"
+				title: "Level 10"
+				type: "custom"
+			}]
+			x: 0.0d
+			y: -7.2d
+		}
+	]
+	subtitle: ["Character Progression"]
+	title: "&aCharacter"
+}

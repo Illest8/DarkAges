@@ -1,0 +1,162 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	disable_toast: true
+	filename: "forged_in_moonlight"
+	group: "3D73B3C61F14CDAB"
+	icon: "iceandfire:raw_silver"
+	id: "0E159F3F7BC8FD48"
+	images: [
+		{
+			height: 10.0d
+			image: "create:textures/gui/clipboard.png"
+			rotation: 0.0d
+			width: 10.0d
+			x: 0.2d
+			y: -7.0d
+		}
+		{
+			height: 5.0d
+			image: "magistuarmory:item/silver_zweihander"
+			rotation: 135.0d
+			width: 5.0d
+			x: -1.4d
+			y: -6.6d
+		}
+		{
+			height: 0.0d
+			image: "darkages:item/silver_spear"
+			rotation: 0.0d
+			width: 5.0d
+			x: 5.4d
+			y: -7.4d
+		}
+		{
+			height: 5.0d
+			image: "magistuarmory:item/silver_zweihander"
+			rotation: -45.0d
+			width: 5.0d
+			x: 2.2d
+			y: -6.6d
+		}
+	]
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "darkages:icons/chat"
+				}
+			}
+			id: "1E330304FD5D18D6"
+			invisible: true
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "0979AF4217DF3E83"
+				title: "Speak to the General"
+				type: "custom"
+			}]
+			x: 0.4d
+			y: -9.0d
+		}
+		{
+			dependencies: ["1E330304FD5D18D6"]
+			description: [
+				"I need to gather raw silver. I could look for it at mining structures or"
+				"go mining for it."
+			]
+			disable_toast: true
+			hide_until_deps_complete: false
+			id: "1CB05048034F76ED"
+			tasks: [{
+				count: 5L
+				id: "125C6FE5650F061F"
+				item: "iceandfire:raw_silver"
+				title: "Collect Silver"
+				type: "item"
+			}]
+			title: "Silver Ore"
+			x: 0.4d
+			y: -7.8d
+		}
+		{
+			dependencies: ["1CB05048034F76ED"]
+			disable_toast: true
+			hide_until_deps_complete: false
+			id: "52F66F5E9F6CC929"
+			tasks: [{
+				count: 5L
+				id: "10836EDA90F71BD7"
+				item: {
+					Count: 1
+					id: "iceandfire:silver_ingot"
+					tag: {
+						Stolen: 1
+					}
+				}
+				title: "Collect Silver Ingots"
+				type: "item"
+			}]
+			title: "Silver Ingots"
+			x: 0.4d
+			y: -6.6d
+		}
+		{
+			dependencies: ["52F66F5E9F6CC929"]
+			description: [
+				"I collected all the silver I need to forge a silver weapon."
+				""
+				"I should find a smithing anvil and a smithing hammer to forge it."
+			]
+			hide_until_deps_complete: false
+			id: "21E18E3C95B3B5C0"
+			rewards: [
+				{
+					auto: "enabled"
+					description: ""
+					icon: {
+						Count: 1
+						id: "iceandfire:silver_sword"
+						tag: {
+							Damage: 0
+						}
+					}
+					id: "4152247E06BEC173"
+					title: "Forged in Moonlight Completed!"
+					type: "toast"
+				}
+				{
+					id: "7946101C908F5375"
+					type: "xp"
+					xp: 50
+				}
+			]
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "iceandfire:silver_sword"
+					tag: {
+						Damage: 0
+					}
+				}
+				id: "55BA6FFA8E96962C"
+				title: "Forge a Silver Weapon"
+				type: "custom"
+			}]
+			title: "Silversmith"
+			x: 0.4d
+			y: -5.4d
+		}
+	]
+	subtitle: ["You're finding and using silver to forge a weapon."]
+	title: "&3Forged in Moonlight"
+}

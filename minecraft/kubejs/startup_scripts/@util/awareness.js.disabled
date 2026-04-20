@@ -1,0 +1,43 @@
+
+// let blacklistedMobs = [
+//   'minecraft:phantom'
+// ]
+
+// let $Creature = Java.loadClass('net.minecraft.world.entity.ambient.AmbientCreature');
+// let $Animal = Java.loadClass('net.minecraft.world.entity.animal.Animal');
+// let $Villager = Java.loadClass('forge.net.mca.entity.VillagerEntityMCA')
+// let $StealthUtils = Java.loadClass('jackiecrazy.footwork.utils.StealthUtils')
+// let $Awareness = Java.loadClass('jackiecrazy.footwork.utils.StealthUtils$Awareness')
+// ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', event => global.livingHurtEvent(event))
+// /** @param {Internal.LivingHurtEvent} event */
+// global.livingHurtEvent = (event) => {
+//   const { entity, source } = event
+//   if (source.getType().includes('magic')) return;
+//   if (entity instanceof $Creature) return;
+//   if (entity instanceof $Animal) return;
+//   if (entity instanceof $Villager) return;
+//   if (source.actual && source.actual.isPlayer()) {
+//     let player = source.actual
+//     if (blacklistedMobs.some(id => entity.id == id)) return;
+//     let awareness = $StealthUtils.INSTANCE.getAwareness(player, entity)
+//     if (awareness == 'UNAWARE') {
+//       event.setAmount(event.amount * (4/3))
+//       player.sendData('darkages:sync_variables', {
+//         sneak_attack: 1
+//       })
+//       player.sendData('darkages:sound', {
+//         sound: 'darkages:successful_hit'
+//       }) 
+//       // player.tell(event.amount)
+//       logObject(entity)
+//     }
+//   }
+// }
+
+// ForgeEvents.onEvent('jackiecrazy.footwork.event.EntityAwarenessEvent', event => {
+//     let player = event.attacker
+//     let entity = event.entity
+//     let awareness = event.awareness
+
+//     player.tell(`${entity.getDisplayName().getString()}, ${awareness}`)
+// })

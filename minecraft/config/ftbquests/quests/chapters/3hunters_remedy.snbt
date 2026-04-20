@@ -1,0 +1,61 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "3hunters_remedy"
+	group: "3D73B3C61F14CDAB"
+	icon: "vital_herbs:restorative_oil"
+	id: "5AFB957B1DC305D5"
+	images: [{
+		height: 10.0d
+		image: "create:textures/gui/clipboard.png"
+		order: 1
+		rotation: 0.0d
+		width: 10.0d
+		x: 0.2d
+		y: -7.0d
+	}]
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["412E094C7FF81558"]
+			id: "3878DA49634C6589"
+			invisible: true
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				description: ""
+				icon: "vital_herbs:restorative_oil"
+				id: "703F616B66F34A1B"
+				title: "Started Hunter's Remedy"
+				type: "toast"
+			}]
+			shape: "circle"
+			tasks: [{
+				count: 4L
+				id: "405E5E6193C4D0A9"
+				item: "vital_herbs:tox_kiss"
+				type: "item"
+			}]
+			x: 0.2d
+			y: -8.8d
+		}
+		{
+			dependencies: ["3878DA49634C6589"]
+			disable_toast: true
+			id: "5669F23C93FB6EBF"
+			tasks: [{
+				icon: "irons_spellbooks:alchemist_cauldron"
+				id: "1AF288815E893EDB"
+				observe_type: 0
+				timer: 0L
+				title: "Find an Alchemist Cauldron"
+				to_observe: "irons_spellbooks:alchemist_cauldron"
+				type: "observation"
+			}]
+			x: 0.2d
+			y: -7.4d
+		}
+	]
+	title: "&3Hunter's Remedy"
+}

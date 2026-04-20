@@ -1,0 +1,1 @@
+cast @s fireball 3

@@ -1,0 +1,59 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "fishing_for_sailors"
+	group: "4FF753FF21FE3CF6"
+	hide_quest_until_deps_complete: true
+	id: "2CAEE5C9378C5D15"
+	images: [{
+		height: 10.0d
+		image: "create:textures/gui/clipboard.png"
+		order: 1
+		rotation: 0.0d
+		width: 10.0d
+		x: 0.2d
+		y: -7.0d
+	}]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["282F25FB7854C48B"]
+			disable_toast: true
+			hide_until_deps_complete: true
+			id: "6B702C4C595479FC"
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: "smallships:oak_galley"
+				id: "702609E25F6358FA"
+				structure: "tide:fishing_boat"
+				title: "Find the Ship"
+				type: "structure"
+			}]
+			x: 0.2d
+			y: -9.0d
+		}
+		{
+			dependencies: ["6B702C4C595479FC"]
+			id: "2C7DFC83D2E1014D"
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "6F468EE9491F9957"
+				title: "Talk to the Fisherman"
+				type: "custom"
+			}]
+			x: 0.2d
+			y: -7.6d
+		}
+	]
+	title: "&3Fishing For Sailors"
+}

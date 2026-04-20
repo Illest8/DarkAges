@@ -1,0 +1,89 @@
+ServerEvents.highPriorityData(event => {
+
+    let toughnessHelmet0 = 0
+    let toughnessChestplate0 = 0
+    let toughnessLeggings0 = 0
+    let toughnessBoots0 = 0
+
+    let toughnessHelmet1 = 1
+    let toughnessHelmet2 = 2
+    let toughnessHelmet3 = 3
+
+    let toughnessChestplate1 = 1
+    let toughnessChestplate2 = 2
+    let toughnessChestplate3 = 3
+
+    let toughnessLeggings1 = 1
+    let toughnessLeggings2 = 2
+    let toughnessLeggings3 = 3
+
+    let toughnessBoots1 = 1
+    let toughnessBoots2 = 2
+    let toughnessBoots3 = 3
+
+    const toughnessItems = {
+        'fantasy_armor:chess_board_knight_helmet': toughnessHelmet1,
+        'fantasy_armor:chess_board_knight_chestplate': toughnessChestplate3,
+        'fantasy_armor:chess_board_knight_leggings': toughnessLeggings2,
+        'fantasy_armor:chess_board_knight_boots': toughnessBoots1,
+        'fantasy_armor:eclipse_soldier_helmet': toughnessHelmet1,
+        'fantasy_armor:eclipse_soldier_chestplate': toughnessChestplate1,
+        'fantasy_armor:eclipse_soldier_leggings': toughnessLeggings1,
+        'fantasy_armor:eclipse_soldier_boots': toughnessBoots1,
+        'fantasy_armor:evening_ghost_helmet': toughnessHelmet0,
+        'fantasy_armor:evening_ghost_chestplate': toughnessChestplate0,
+        'fantasy_armor:evening_ghost_leggings': toughnessLeggings0,
+        'fantasy_armor:evening_ghost_boots': toughnessBoots0,
+        'fantasy_armor:lady_maria_helmet': toughnessHelmet1,
+        'fantasy_armor:lady_maria_chestplate': toughnessChestplate2,
+        'fantasy_armor:lady_maria_leggings': toughnessLeggings2,
+        'fantasy_armor:lady_maria_boots': toughnessBoots1,
+        'fantasy_armor:thief_helmet': toughnessHelmet0,
+        'fantasy_armor:thief_chestplate': toughnessChestplate0,
+        'fantasy_armor:thief_leggings': toughnessLeggings0,
+        'fantasy_armor:thief_boots': toughnessBoots0,
+        'fantasy_armor:wandering_wizard_helmet': toughnessHelmet0,
+        'fantasy_armor:wandering_wizard_chestplate': toughnessChestplate0,
+        'fantasy_armor:wandering_wizard_leggings': toughnessLeggings0,
+        'fantasy_armor:wandering_wizard_boots': toughnessBoots0,
+        'fantasy_armor:wind_worshipper_helmet': toughnessHelmet0,
+        'fantasy_armor:wind_worshipper_chestplate': toughnessChestplate0,
+        'fantasy_armor:wind_worshipper_leggings': toughnessLeggings0,
+        'fantasy_armor:wind_worshipper_boots': toughnessBoots0,
+        'magistuarmoryaddon:dark_gothic_helmet': toughnessHelmet0,
+        'magistuarmoryaddon:dark_gothic_chestplate': toughnessChestplate0,
+        'magistuarmoryaddon:dark_gothic_leggings': toughnessLeggings0,
+        'magistuarmoryaddon:dark_gothic_boots': toughnessBoots0,
+        'magistuarmoryaddon:scale_helmet': toughnessHelmet0,
+        'magistuarmory:lamellar_chestplate': toughnessChestplate0,
+        'magistuarmory:lamellar_boots': toughnessBoots0,
+        'magistuarmoryaddon:dark_crusader_helmet': toughnessHelmet1,
+        'magistuarmoryaddon:dark_crusader_chestplate': toughnessChestplate1,
+        'magistuarmoryaddon:dark_crusader_leggings': toughnessLeggings1,
+        'magistuarmoryaddon:dark_crusader_boots': toughnessBoots1
+    }
+
+    const toughnessJson = {};
+
+    for (const [item, toughnessValue] of Object.entries(toughnessItems)) {
+        toughnessJson[item] = [
+            {
+                attribute: "minecraft:generic.armor_toughness",
+                value: toughnessValue,
+                operation: "ADDITION"
+            }
+        ];
+    }
+
+    for (const [item, val] of Object.entries(toughnessItems)) {
+        if (val === undefined || val === null) {
+            console.log("Missing toughness value for:", item);
+        }
+    }
+
+    // Write toughness.json
+    JsonIO.write(
+        "kubejs/data/darkages/attributesetter/item/toughness.json",
+        toughnessJson
+    );
+});

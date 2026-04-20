@@ -1,0 +1,34 @@
+{
+  "type": "lithostitched:add_template_pool_elements",
+  "template_pools": "darkages:overworld/nord_hall/dungeon/rooms",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "structure_gel:gel_single_pool_element",
+          "location": "darkages:overworld/nord_hall/dungeon/room/blacksmith",
+          "maintainWater": false,
+          "projection": "rigid",
+          "processors": "darkages:nord_hall_dungeon"
+        },
+        "forced_count": 3
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "lithostitched:delegating",
+        "delegate": {
+          "element_type": "structure_gel:gel_single_pool_element",
+          "location": "darkages:overworld/nord_hall/dungeon/room/alchemist",
+          "maintainWater": false,
+          "projection": "rigid",
+          "processors": "darkages:nord_hall_dungeon"
+        },
+        "forced_count": 3
+      }
+    }
+  ]
+}

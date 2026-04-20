@@ -1,0 +1,78 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = net.stirdrem.overgeared.screen.SteelSmithingAnvilScreen
+  render_custom_elements_behind_vanilla = false
+  last_edited_time = 1753747674089
+  is_enabled = true
+  randommode = false
+  randomgroup = 1
+  randomonlyfirsttime = false
+  layout_index = 0
+  [loading_requirement_container_meta:efa5ac06-af4c-4e54-a04e-28e67d919a74-1753747149886] = [groups:][instances:]
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = false
+}
+
+scroll_list_customization {
+  preserve_scroll_list_header_footer_aspect_ratio = true
+  render_scroll_list_header_shadow = true
+  render_scroll_list_footer_shadow = true
+  show_scroll_list_header_footer_preview_in_editor = false
+  repeat_scroll_list_header_texture = false
+  repeat_scroll_list_footer_texture = false
+  show_screen_background_overlay_on_custom_background = false
+  apply_vanilla_background_blur = false
+}
+
+layout_action_executable_blocks {
+}
+
+element {
+  item_key = {"placeholder":"getvariable","values":{"name":"forgeBoost"}}
+  item_count = 1
+  enchanted = false
+  lore = Applies aura to your crafted item.
+  show_tooltip = true
+  element_type = item
+  instance_identifier = dedabb60-ed87-4b5e-81b7-c1775c877fb8-1753744058730
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 1920
+  auto_sizing_base_screen_height = 1060
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = -81
+  y = -56
+  width = 22
+  height = 23
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 3d0e6adf-901f-4782-84a0-6451ad6674e6-1753744058730
+  [loading_requirement_container_meta:3d0e6adf-901f-4782-84a0-6451ad6674e6-1753744058730] = [groups:apotheosis_materials;][instances:]
+  [loading_requirement_group:apotheosis_materials] = [group_mode:or]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][group:apotheosis_materials][req_id:505fa127-bc5f-40f2-bf13-495ad1ac8b5d-1753747046371] = forgeBoost:apotheosis:common_material
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][group:apotheosis_materials][req_id:17e92596-1147-4abb-a637-a748e5f91a6a-1753747060612] = forgeBoost:apotheosis:uncommon_material
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][group:apotheosis_materials][req_id:62301667-d289-4645-8a8e-d3aeac0a391d-1753747080020] = forgeBoost:apotheosis:rare_material
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][group:apotheosis_materials][req_id:c8c7ea13-8596-4838-94c4-0e2ad93a07af-1753747097004] = forgeBoost:apotheosis:epic_material
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][group:apotheosis_materials][req_id:b8a0da89-82ac-482a-85e8-13d5a2c69a66-1753747111586] = forgeBoost:apotheosis:mythic_material
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+

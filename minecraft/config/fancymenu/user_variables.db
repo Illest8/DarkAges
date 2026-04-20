@@ -1,0 +1,224 @@
+type = user_variables
+
+variable {
+  name = cursor
+  value = none
+  reset_on_launch = false
+}
+
+variable {
+  name = statStealth
+  value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = limbDamage
+  value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = button_helper
+  value = Off
+  reset_on_launch = false
+}
+
+variable {
+  name = shaders
+  value = On
+  reset_on_launch = false
+}
+
+variable {
+  name = stamina
+  value = 1.0
+  reset_on_launch = false
+}
+
+variable {
+  name = show_stealth
+  value = On
+  reset_on_launch = false
+}
+
+variable {
+  name = quest
+  value = 234CE0F3BDF97960
+  reset_on_launch = false
+}
+
+variable {
+  name = world_create_difficulty
+  value = normal
+  reset_on_launch = false
+}
+
+variable {
+  name = mode
+  value = vanilla
+  reset_on_launch = false
+}
+
+variable {
+  name = ecursor
+  value = none
+  reset_on_launch = false
+}
+
+variable {
+  name = currentStamina
+  value = 19.0
+  reset_on_launch = false
+}
+
+variable {
+  name = era
+  value = attrition
+  reset_on_launch = false
+}
+
+variable {
+  name = stats
+  value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = cheats
+  value = 1.0
+  reset_on_launch = false
+}
+
+variable {
+  name = temperature
+  value = 12
+  reset_on_launch = false
+}
+
+variable {
+  name = tutorial
+  value = guidebook
+  reset_on_launch = false
+}
+
+variable {
+  name = show_quests
+  value = On
+  reset_on_launch = false
+}
+
+variable {
+  name = statStamina
+  value = 19.0
+  reset_on_launch = false
+}
+
+variable {
+  name = backCount
+  value = 1
+  reset_on_launch = false
+}
+
+variable {
+  name = tempcategory
+  value = fine
+  reset_on_launch = false
+}
+
+variable {
+  name = jadeItem
+  value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = level
+  value = 33
+  reset_on_launch = false
+}
+
+variable {
+  name = diseases
+  value = 
+  reset_on_launch = false
+}
+
+variable {
+  name = world_create_cheats
+  value = on
+  reset_on_launch = false
+}
+
+variable {
+  name = hotbar
+  value = false
+  reset_on_launch = false
+}
+
+variable {
+  name = dropdown
+  value = false
+  reset_on_launch = false
+}
+
+variable {
+  name = world_create_gamemode
+  value = survival
+  reset_on_launch = false
+}
+
+variable {
+  name = currentMana
+  value = 50.0
+  reset_on_launch = false
+}
+
+variable {
+  name = jadeName
+  value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = hud_attributes
+  value = Off
+  reset_on_launch = false
+}
+
+variable {
+  name = mana
+  value = 1.0
+  reset_on_launch = false
+}
+
+variable {
+  name = sneak_attack
+  value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = statMana
+  value = 50.0
+  reset_on_launch = false
+}
+
+variable {
+  name = backItem
+  value = magistuarmory:diamond_bastardsword
+  reset_on_launch = false
+}
+
+variable {
+  name = villageRep
+  value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = statSmithing
+  value = 1.0
+  reset_on_launch = false
+}
+

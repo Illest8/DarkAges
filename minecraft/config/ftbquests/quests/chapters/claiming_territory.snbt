@@ -1,0 +1,35 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "claiming_territory"
+	group: "44651842A7493364"
+	icon: {
+		Count: 1
+		id: "ftbquests:custom_icon"
+		tag: {
+			Icon: "darkages:textures/menu/castle.png"
+		}
+	}
+	id: "670C2E8280AF915F"
+	order_index: 0
+	quest_links: [ ]
+	quests: [{
+		id: "7240846878A25F17"
+		invisible: true
+		tasks: [{
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "darkages:textures/menu/castle.png"
+				}
+			}
+			id: "73EDD4047C56A4BC"
+			title: "Claim a chunk"
+			type: "custom"
+		}]
+		x: -0.8d
+		y: -4.4d
+	}]
+	title: "&3Claiming Territory"
+}

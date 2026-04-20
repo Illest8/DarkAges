@@ -1,0 +1,166 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mighty_forge"
+	group: "3D73B3C61F14CDAB"
+	hide_quest_until_deps_complete: true
+	icon: "overgeared:smithing_anvil"
+	id: "3E0212D9443FD8AA"
+	images: [
+		{
+			height: 10.0d
+			image: "create:textures/gui/clipboard.png"
+			order: 1
+			rotation: 0.0d
+			width: 10.0d
+			x: 1.7999999999999998d
+			y: -11.2d
+		}
+		{
+			dependency: "6442AFD5254308C6"
+			height: 2.0d
+			image: "overgeared:item/iron_tongs"
+			order: 2
+			rotation: 90.0d
+			width: 2.0d
+			x: 0.0d
+			y: -12.6d
+		}
+		{
+			dependency: "162CB5FA587A5C38"
+			height: 2.0d
+			image: "cataclysm:block/azure_seastone_ink_mural/smithing"
+			order: 2
+			rotation: 0.0d
+			width: 2.0d
+			x: 3.4d
+			y: -10.2d
+		}
+	]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			id: "6442AFD5254308C6"
+			invisible: true
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "754D133A4D8F3E24"
+				title: "Speak to the Verden Blacksmith"
+				type: "custom"
+			}]
+			title: "The Blacksmith"
+			x: 1.6d
+			y: -13.2d
+		}
+		{
+			dependencies: ["6442AFD5254308C6"]
+			description: ["The Verden blacksmith asked me to craft an anvil for him."]
+			disable_toast: true
+			id: "234CE0F3BDF97960"
+			tasks: [{
+				icon: "minecraft:anvil"
+				id: "1928632272970B06"
+				item: "minecraft:anvil"
+				only_from_crafting: true
+				title: "Craft an Anvil"
+				type: "item"
+			}]
+			title: "Anvil Crafting"
+			x: 1.6d
+			y: -12.0d
+		}
+		{
+			dependencies: ["234CE0F3BDF97960"]
+			id: "162CB5FA587A5C38"
+			rewards: [{
+				auto: "no_toast"
+				count: 5
+				id: "19FF680F1DB3F95A"
+				item: "darkages:coin"
+				title: "5 Ducats"
+				type: "item"
+			}]
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "magistuarmory:item/medieval_bag"
+					}
+				}
+				id: "36EBA87F694A7541"
+				title: "Bring the Anvil to the Blacksmith"
+				type: "custom"
+			}]
+			title: "Delivery"
+			x: 1.6d
+			y: -10.799999999999999d
+		}
+		{
+			dependencies: ["162CB5FA587A5C38"]
+			description: [""]
+			id: "0B0450DF1B6F9F7A"
+			rewards: [{
+				id: "08264600DE13CC26"
+				type: "xp"
+				xp: 50
+			}]
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "bountiful:item/royal"
+					}
+				}
+				id: "5E0136AEE4818660"
+				title: "Trade with the Blacksmith"
+				type: "custom"
+			}]
+			title: "Verden Armor"
+			x: 1.6d
+			y: -9.6d
+		}
+		{
+			dependencies: ["234CE0F3BDF97960"]
+			id: "36AD1FF889F3CFDB"
+			optional: true
+			rewards: [{
+				id: "2EC7411CDEE3F220"
+				type: "xp"
+				xp: 30
+			}]
+			shape: "circle"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "overgeared:iron_tongs"
+					tag: {
+						Damage: 0
+					}
+				}
+				id: "245B537C20BB8908"
+				item: {
+					Count: 1
+					id: "overgeared:iron_tongs"
+					tag: {
+						Damage: 0
+					}
+				}
+				title: "Bring Iron Tongs to the Blacksmith."
+				type: "item"
+			}]
+			x: 0.0d
+			y: -10.799999999999999d
+		}
+	]
+	subtitle: ["You're helping restore a Verden Forge."]
+	title: "&3Mighty Forge"
+}

@@ -1,0 +1,88 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	disable_toast: true
+	filename: "3steel_knows_no_name"
+	group: "3D73B3C61F14CDAB"
+	icon: {
+		Count: 1
+		id: "ftbquests:custom_icon"
+		tag: {
+			Icon: "iceandfire:textures/gui/main_menu/drawing_14.png"
+		}
+	}
+	id: "6C475DC98C299734"
+	images: [{
+		height: 10.0d
+		image: "create:textures/gui/clipboard.png"
+		order: 1
+		rotation: 0.0d
+		width: 10.0d
+		x: 0.2d
+		y: -7.0d
+	}]
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["6791AE621D1839EF"]
+			id: "3DEF163D34C11B50"
+			tasks: [{
+				entity: "iceandfire:troll"
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "iceandfire:textures/gui/main_menu/drawing_14.png"
+					}
+				}
+				id: "5682113681E6EAA6"
+				title: "Kill Trolls"
+				type: "kill"
+				value: 3L
+			}]
+			x: 0.2d
+			y: -7.8d
+		}
+		{
+			dependencies: ["7C68DF9DB69AC7AE"]
+			hide_until_deps_complete: true
+			id: "6791AE621D1839EF"
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "586D86BC1E9F456B"
+				title: "Speak to the captain"
+				type: "custom"
+			}]
+			x: 0.2d
+			y: -9.0d
+		}
+		{
+			dependencies: ["3DEF163D34C11B50"]
+			id: "29C45AFF893505C7"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "01937A557D33645C"
+				title: "Return to the captain"
+				type: "custom"
+			}]
+			x: 0.2d
+			y: -6.6d
+		}
+	]
+	title: "&3Steel Knows No Name"
+}

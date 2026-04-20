@@ -1,0 +1,28 @@
+﻿{
+    "pools":[
+        {
+            "entries":[
+                {
+                    "conditions":[],
+                    "functions":[
+                        {
+                            "count":{
+                                "max":10,
+                                "min":5
+                            },
+                            "function":"minecraft:set_count"
+                        }
+                    ],
+                    "name":"tide:mint_carp",
+                    "type":"item",
+                    "weight":1
+                }
+            ],
+            "name":"Pool 1",
+            "rolls":{
+                "max":1,
+                "min":1
+            }
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "3deforestation"
+	group: "3D73B3C61F14CDAB"
+	icon: {
+		Count: 1
+		id: "overgeared:steel_axe"
+		tag: {
+			Damage: 0
+		}
+	}
+	id: "262AA2B6D8326308"
+	images: [{
+		height: 10.0d
+		image: "create:textures/gui/clipboard.png"
+		order: 1
+		rotation: 0.0d
+		width: 10.0d
+		x: 0.2d
+		y: -7.0d
+	}]
+	order_index: 6
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["412E094C7FF81558"]
+			description: ["The woodcutter in Verden asked me to help collect more logs since I purchased most of his supply. He's promised me a portion of the log profits if I bring them to him."]
+			id: "0621EBA83466A6C4"
+			invisible: true
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "2ED2190F7CCB8977"
+				title: "Woodcutter"
+				type: "custom"
+			}]
+			x: 0.2d
+			y: -8.8d
+		}
+		{
+			dependencies: ["0621EBA83466A6C4"]
+			description: ["I should go collect 128 logs for the woodcutter."]
+			disable_toast: true
+			id: "3FCBCC229C69966B"
+			tasks: [{
+				count: 128L
+				disable_toast: true
+				id: "7A4D1A17657D0082"
+				item: { Count: 128, id: "minecraft:oak_log" }
+				title: "Collect the logs"
+				type: "item"
+			}]
+			x: 0.2d
+			y: -7.6d
+		}
+	]
+	title: "&3Deforestation"
+}

@@ -1,0 +1,36 @@
+
+// ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent$LeftClickBlock', event => {
+//     const player = event.entity;
+//     // if (player.getTags().contains('nobreak')) event.setCanceled(true)
+//     if (isInLawStructure(player)) {
+//       player.tags.add('nobreak')
+//       player.tell( `added tag nobreak`)
+//       event.setCanceled(true);
+//       return;
+//     }
+//     else {
+//       player.tell(`removed tag nobreak`)
+//       player.tags.remove('nobreak')
+//     }
+// });
+
+// ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerEvent$BreakSpeed', event => {
+//     global.harvestChecker(event);
+// })
+
+// global.harvestChecker = (/** @type {Internal.PlayerEvent$BreakSpeed} */ event) => {
+//     const { entity, state } = event;
+
+//     entity.tell(entity.getTags())
+
+//     if (entity.getTags().find(tag => tag.includes('nobreak'))) {
+//       entity.tell('nobreak');
+//       event.setNewSpeed(0);
+//       return;
+//     }
+
+//     if (!state.tags.anyMatch(tag => tag.location() == 'minecraft:logs')) return;
+//     if (!entity.mainHandItem.hasTag('minecraft:axes')) {
+//       event.setNewSpeed(0);
+//     }
+// }

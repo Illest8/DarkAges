@@ -1,0 +1,62 @@
+ServerEvents.highPriorityData(event => {
+
+
+    let maxManaHelmet25 = 25
+    let maxManaHelmet50 = 50
+    let maxManaHelmet75 = 75
+    let maxManaHelmet100 = 100
+
+    let maxManaChestplate25 = 25
+    let maxManaChestplate50 = 50
+    let maxManaChestplate75 = 75
+    let maxManaChestplate100 = 100
+
+    let maxManaLeggings25 = 25
+    let maxManaLeggings50 = 50
+    let maxManaLeggings75 = 75
+    let maxManaLeggings100 = 100
+
+    let maxManaBoots25 = 25
+    let maxManaBoots50 = 50
+    let maxManaBoots75 = 75
+    let maxManaBoots100 = 100
+
+    const maxManaItems = {
+        'fantasy_armor:wandering_wizard_helmet': maxManaHelmet50,
+        'fantasy_armor:wandering_wizard_chestplate': maxManaChestplate50,
+        'fantasy_armor:wandering_wizard_leggings': maxManaLeggings50,
+        'fantasy_armor:wandering_wizard_boots': maxManaBoots50,
+        'irons_spellbooks:pumpkin_helmet': maxManaHelmet25,
+        'irons_spellbooks:pumpkin_chestplate': maxManaChestplate25,
+        'irons_spellbooks:pumpkin_leggings': maxManaLeggings25,
+        'irons_spellbooks:pumpkin_boots': maxManaBoots25,
+        'minecraft:golden_helmet': maxManaHelmet25,
+        'minecraft:golden_chestplate': maxManaChestplate25,
+        'minecraft:golden_leggings': maxManaLeggings25,
+        'minecraft:golden_boots': maxManaBoots25
+    }
+
+    const maxManaJson = {};
+
+    for (const [item, maxManaValue] of Object.entries(maxManaItems)) {
+        maxManaJson[item] = [
+            {
+                attribute: "irons_spellbooks:max_mana",
+                value: maxManaValue,
+                operation: "ADDITION"
+            }
+        ];
+    }
+
+    for (const [item, val] of Object.entries(maxManaItems)) {
+        if (val === undefined || val === null) {
+            console.log("Missing maxMana value for:", item);
+        }
+    }
+
+    // Write maxMana.json
+    JsonIO.write(
+        "kubejs/data/darkages/attributesetter/item/max_mana.json",
+        maxManaJson
+    );
+});

@@ -1,0 +1,11 @@
+{
+	chapter_groups: [
+		{ id: "3499AF304C9E0F06", title: "&6Towns" }
+		{ id: "0A0FDCB1C85AFB85", title: "&6Aurelith" }
+		{ id: "79ED20A7D576A5E0", title: "&6Khar" }
+		{ id: "5AB3886F07BB425A", title: "&6Solen" }
+		{ id: "4FF753FF21FE3CF6", title: "&6Thalor" }
+		{ id: "3D73B3C61F14CDAB", title: "&6Verden" }
+		{ id: "44651842A7493364", title: "&6Territory" }
+	]
+}

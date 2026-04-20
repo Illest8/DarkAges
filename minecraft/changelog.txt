@@ -1,0 +1,175 @@
+﻿- Added stealth back to tooltip
+- Added Resurgence, AOE Revive Spell
+- Reduced Blood Slash power from 1 -> 0.5
+- Tweaked stamina regen value
+- Updated experience expression to make leveling progressively harder
+- Added medicine rarity for healing items
+- Changed spell qualities to match rarities
+- Fixed level based trading rarities
+- Removed block destroy speed
+- Added decoration loot bag
+- Updated fishing rod textures
+- Fixed EMI Group weapon and shield folders
+- Changed Stamina Charge texture
+- Changed Enchanting Table texture with lapis removed
+- Overhauled backpack names and tooltips
+- Fixed animal loot drops
+- Added Shield Quality scaling for forging
+- Tweaked stamina regen calculation
+- Fixed shield rendering in the backslot
+- Changed knockback attribute texture in tooltips
+- Added sound category listener to respect player preferred volumes
+- Added a block to ensure there's no dialogue popups in combat
+- Created a questItem tag to stop players from removing quest items from inventory
+- Changed FullRevive to ignore removing beneficial effects
+- Changed Inventory UI to display effects
+- Fixed default stances for npcs
+- Added Enchantment rarity to Ancient Books
+- Updated Greatsword moveset
+- Added Estoc moveset
+- Reformatted changelog ui
+- Fixed EpicFight stamina deduction
+- Added breakSpeed event (use in quests)
+- Added changelog in game
+- Remove epicfight_dd weapons
+- Fixed trade qualities
+- Added shortsword moveset
+- Updated datagen for curios backslot
+- Removed shulker boxes
+- Quest ui updated
+- Big quest overhaul
+- Added spear moveset
+- Added quick pin keybind
+- Retextured barriers
+- Added profession finder
+- Added coin sounds to bounties with coin rewards
+- Added coin sound
+- Added block to reset forging progress
+- Added backpack rarity
+- Changed overgeared qualities to stars
+- Added spell rarity
+- Added Claymore weapon type
+- Added backslot locations for each weapon type
+- Nerfed stealth damage
+- Assassinations only work for melee
+- Reworked quest progress
+- Removed quest sound for placeholders
+- Fixed ID entry
+- Fixed damage sounds server side
+- Fixed backslot on first load (Hopefully)
+- Change sneak attack UI
+- Added assassination stat
+- Retextured fishing rods and sleeping bags
+- Removed combos screen
+- Fixed bosses tag
+- Changed shout sound
+- Update button helper
+- Retextured reforging table gui
+- Removed sigil reequirement from reforge recipes
+- Lower mob spawns in towns
+- Fixed trigger  event command
+- Fix curio slots
+- Changed rep to be dynamically shown
+- Changed armor negation to armor shred in impact calculation
+- Added sword moveset
+- Added medium swing sounds
+- Added friar, general, merchant, and priestess to npc list
+- Changed trade hearts to only include mca entities
+- Attribute builder command
+- Added og modifier removal script
+- Updated cataclysm
+- Updated attacker in damage sounds
+- Retextured orc armor
+- Removed lightning
+- Reduced volume of heavy armor hit sounds
+- Added attribute setter
+- Tent recipes from leather to canvas
+- Retextured healing herbs
+- Removed lapis from enchanting
+- Mca dialogues medievalfied!
+- Fix bandage recipe
+- Charged attacks do 50% more damage
+- Changed Bandit health 16->20
+- Added straw and canvas to healing items tab
+- Added random viking raid with immersive sounds!
+- Added hit sounds for knights, guards, vikings, and bandits
+- Added Blacksmith to invulnerable mobs
+- Added all types of damage sounds for Armor values.
+- Change overgeared difficulty for Coins
+- Backpack ui stuff
+- Added stamina debuff to charged attacks
+- Added priority texture pack
+- Added Combat Evol music to menu
+- Updated trade hearts functionality
+- Track inventory changed issue with epic knights decorations
+- Revamped random events
+- Revamped coin forging recipe
+- Rename enchantment creative tab gold
+- Quest npcs invincible
+- Players do x2 damage on mounts
+- Overhauled fishing rod textures
+- Fixed librarian loot table
+- Fixed bow attributes
+- Changed default overgeared difficulty
+- Change Health Texture in Stats menu
+- Change font for Plague
+- Fix skill container client side
+- Changed gold nugget recipe to salvage
+- Added sheathe sound
+- Added new bows to combat tab
+- Added Acolyte identity
+- Removed /idenitfyWeapon
+- MCA chances: Marriage 0.03 -> 0.01, Adventurer: 0.03 -> 0.02, Procreation 0.03 -> 0.05
+- Fixed backslot on join
+- Buffed scribe loot
+- Added Stealth overlay hud setting
+- Added setSkill for identities
+- Added Identity command
+- Fixed helmet hover in inventory
+- Disabled swing cost
+- Added skill capabilities
+- Added inherent overgeared attributes and scaling for quality
+- Add heavy/light to all weapons
+- HUD update!
+- Fix stats button in inventory
+- Added Dovah track.
+- Added Bastardsword moveset
+- Fixed farm structure
+- Changed music back to default resource pack
+- Remove stylet dual wield
+- Fixed logs on cartographer/armorer/inn
+- Charged attacks no longer use stamina. This fixes charged animations getting canceled.
+- Added raid utils for towns
+- Updated Combat Evolution
+- Modify last town houses
+- Fixed checks
+- Fix shafts on town buildings
+- Changed stylet model
+- Changed Menu Logo
+- Add barracks building type
+- Updated stealing to include ownership checks
+- Updated Field Guide
+- Updated EMI++
+- Remove copycats from loot
+- Fixed Town Reputation
+- Changed procreation chance 0.1 => 0.03
+- Changed Inn visitors: 0.05 -> 0.03
+- Updated Overgeared
+- Updated LazyUtils
+- Updated EDP
+- Removed ESO
+- Player becomes invulnerable on prison teleport.
+- Fixed changelog
+- Find a way to bypass building refresh for player own homes
+- Added stolen items getting removed from backpacks
+- Added stealing fix for owned buildings
+- Added prison functionality to towns
+- Added player format key for structures
+- Added nuke_tabs modload check
+- Added KubeJS Irons Spells
+- Added individual building check for towns
+- Added Immersive Enchanting
+- Added Faction colors (waypoint reference)
+- Added Dawn Days
+- Added building finder
+- Added API for player-purchasable homes

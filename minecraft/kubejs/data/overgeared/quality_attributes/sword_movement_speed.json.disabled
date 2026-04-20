@@ -1,0 +1,31 @@
+{
+  "attribute": "minecraft:generic.movement_speed",
+  "targets": [
+    {
+      "type": "item_tag",
+      "id": "darkages:swords"
+    }
+  ],
+  "qualities": {
+    "poor": {
+      "operation": "add",
+      "amount": -0.02
+    },
+    "well": {
+      "operation": "add",
+      "amount": 0.0
+    },
+    "expert": {
+      "operation": "add",
+      "amount": 0.01
+    },
+    "perfect": {
+      "operation": "add",
+      "amount": 0.02
+    },
+    "master": {
+      "operation": "add",
+      "amount": 0.04
+    }
+  }
+}

@@ -1,0 +1,12 @@
+type = slideshow
+
+slideshow-meta {
+   name = tutorial_guidebook
+   width = 1920
+   height = 1080
+   x = 0
+   y = 0
+   duration = 4.0
+   fadespeed = 20.0
+   randomize = false
+}

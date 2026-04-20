@@ -1,0 +1,56 @@
+const $ClientLivingHurtEvent = Java.loadClass('net.minecraftforge.event.entity.living.LivingHurtEvent');
+const $EquipmentSlot = Java.loadClass('net.minecraft.world.entity.EquipmentSlot');
+const $Attributes = Java.loadClass('net.minecraft.world.entity.ai.attributes.Attributes');
+
+NativeEvents.onEvent($EventPriority.LOW, true, $ClientLivingHurtEvent, event => {
+  let attacker = event.source.player ||
+  event.source.immediate ||
+  event.source.actual;
+  if (attacker && event.entity.player) {
+    let chest = Client.player.getChestArmorItem();
+
+    if (!chest.isEmpty()) {
+      let modifiers = chest.getAttributeModifiers($EquipmentSlot.CHEST);
+
+      let armorList = modifiers.get($Attributes.ARMOR);
+
+      if (armorList) {
+        armorList.forEach(mod => {
+          if (mod.getAmount() > 5) {
+            Client.player.playSound('darkages:heavy_armor_hit');
+            return;
+          }
+          Client.player.playSound('darkages:light_armor_hit');
+          return;
+        });
+      }
+    }
+
+    Client.player.playSound('darkages:flesh_hit');
+    return;
+  }
+
+  if (attacker && event.source.player) {
+    let entity = event.entity;
+    let chest = entity.getChestArmorItem()
+    if (!chest.isEmpty()) {
+      let modifiers = chest.getAttributeModifiers($EquipmentSlot.CHEST);
+
+      let armorList = modifiers.get($Attributes.ARMOR);
+
+      if (armorList) {
+        armorList.forEach(mod => {
+          if (mod.getAmount() > 5) {
+            Client.player.playSound('darkages:heavy_armor_hit');
+            return;
+          }
+          Client.player.playSound('darkages:light_armor_hit');
+          return;
+        });
+      }
+    }
+
+    Client.player.playSound('darkages:flesh_hit');
+    return;
+  }
+});

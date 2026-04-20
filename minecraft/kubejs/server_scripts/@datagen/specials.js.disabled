@@ -1,0 +1,65 @@
+// ---------------------------------------------
+//  SPECIALS.JSON GENERATOR
+// ---------------------------------------------
+
+// Ensure config is global and available BEFORE events run
+global.weaponTypeConfig = {
+    ahlspiess: 'minecraft:generic.attack_knockback',
+    bastardsword: 'epicfight:impact',
+    claymore: ['epicfight:impact', 'minecraft:generic.attack_knockback'],
+    concavehalberd: ['attributeslib:crit_damage', 'epicfight:impact'],
+    dagger: 'attributeslib:armor_shred',
+    estoc: 'minecraft:generic.attack_speed',
+    greatsword: 'epicfight:impact',
+    guisarme: 'attributeslib:armor_shred',
+    heavymace: ['attributeslib:crit_chance', 'attributeslib:crit_damage'],
+    heavywarhammer: ['attributeslib:crit_damage', 'attributeslib:current_hp_damage'],
+    katzbalger: ['attributeslib:crit_chance', 'epicfight:impact'],
+    lochaberaxe: ['attributeslib:armor_shred', 'minecraft:generic.attack_knockback'],
+    lucernhammer: ['attributeslib:crit_damage', 'attributeslib:current_hp_damage'],
+    morgenstern: ['attributeslib:crit_chance', 'epicfight:impact'],
+    pike: 'minecraft:generic.attack_knockback',
+    shortsword: ['attributeslib:healing_received'],
+    spear: ['attributeslib:armor_shred', 'attributeslib:crit_chance'],
+    stylet: 'attributeslib:crit_chance',
+    sword: ['darkages:blocking', 'epicfight:impact', 'minecraft:generic.movement_speed'],
+    tachi: ['attributeslib:armor_shred', 'attributeslib:crit_damage'],
+    zweihander: ['attributeslib:current_hp_damage', 'attributeslib:healing_received']
+};
+
+
+// ---------------------------------------------
+//  DATA GENERATION
+// ---------------------------------------------
+ServerEvents.highPriorityData(event => {
+
+    const specialsJson = {};
+    const config = global.weaponTypeConfig;
+
+    for (const [weaponType, weaponList] of Object.entries(global.weaponRegistry)) {
+
+        // Skip types not in config
+        if (!(weaponType in config)) continue;
+
+        // Normalize attributes to array
+        let attributes = config[weaponType];
+        if (!Array.isArray(attributes)) attributes = [attributes];
+
+        // Process each weapon entry
+        for (const entry of weaponList) {
+            let id = entry.id;
+
+            specialsJson[id] = attributes.map(attr => ({
+                attribute: attr,
+                value: 0,
+                operation: "ADDITION"
+            }));
+        }
+    }
+
+    // Write output file
+    JsonIO.write(
+        "kubejs/data/darkages/attributesetter/item/specials.json",
+        specialsJson
+    );
+});

@@ -1,0 +1,22 @@
+ForgeEvents.onEvent(
+    'net.minecraftforge.client.event.InputEvent$InteractionKeyMappingTriggered',
+    event => {
+        const player = Client.player
+        if (!player) return
+
+        const mapping = event.getKeyMapping()
+        if (!mapping) return
+
+        if (mapping.getName() !== 'key.use') return
+
+        const hit = Client.hitResult
+        if (!hit || hit.type !== 'BLOCK') return
+
+        const block = player.level.getBlock(hit.blockPos)
+
+        // player.tell($VariableHandler.getVariable('era').getValue())
+        if (block.id === 'darkages:pine_door' && (!questCompleted(player, '00EF1BB47D7B14D7'))) {
+            event.setCanceled(true)
+        }
+    }
+)

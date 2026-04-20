@@ -1,0 +1,208 @@
+{
+	consume_items: true
+	default_hide_dependency_lines: false
+	default_quest_shape: "square"
+	filename: "caravan"
+	group: "3499AF304C9E0F06"
+	hide_quest_until_deps_complete: true
+	icon: {
+		Count: 1
+		id: "ftbquests:custom_icon"
+		tag: {
+			Icon: "dragnlivestock:item/covered_wagon"
+		}
+	}
+	id: "7C49547E4B07F062"
+	images: [
+		{
+			height: 10.0d
+			hover: ["Main Quests"]
+			image: "create:textures/gui/clipboard.png"
+			rotation: 0.0d
+			width: 10.0d
+			x: 0.2d
+			y: -6.6d
+		}
+		{
+			height: 2.0d
+			image: "dragnlivestock:item/wagon_wheel"
+			order: 1
+			rotation: 0.0d
+			width: 2.0d
+			x: -2.0d
+			y: -7.0d
+		}
+		{
+			dependency: "1F3BC086A749CD2D"
+			height: 2.0d
+			image: "dragnlivestock:item/wagon_cover"
+			rotation: 0.0d
+			width: 2.0d
+			x: 2.2d
+			y: -4.8d
+		}
+		{
+			dependency: "010B7965B6E5B186"
+			height: 2.0d
+			image: "patchouli:items/book_brown"
+			rotation: 0.0d
+			width: 2.0d
+			x: -2.0d
+			y: -3.8d
+		}
+	]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["5349E9217BB2CBE4"]
+			description: ["The old man told me about how his caravan got attacked and asked me to investigate the bandit's fort. "]
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "darkages:icons/chat"
+				}
+			}
+			id: "2D0A56115616EC78"
+			invisible: true
+			optional: true
+			rewards: [{
+				description: ""
+				id: "4B60731532460E68"
+				title: "Caravan Started"
+				type: "toast"
+			}]
+			shape: "circle"
+			tasks: [{
+				disable_toast: true
+				id: "591B725DB29EA0F5"
+				title: "Speak to the wise man."
+				type: "custom"
+			}]
+			x: -2.2d
+			y: -8.8d
+		}
+		{
+			dependencies: ["2D0A56115616EC78"]
+			description: [
+				"The man in town square gave me the location of the bandit's Captured Fort. "
+				""
+				"He warned me that they are aggressive. I should be prepared."
+			]
+			disable_toast: true
+			id: "370C8ECBD71B488E"
+			rewards: [{
+				id: "6CFDF24016E9F780"
+				type: "xp"
+				xp: 10
+			}]
+			tasks: [{
+				disable_toast: true
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "minecraft:textures/mob_effect/speed.png"
+					}
+				}
+				id: "71F2C7229B4048ED"
+				structure: "darkages:overworld/bandit_captured_fort"
+				title: "Travel to the fort"
+				type: "structure"
+			}]
+			title: "Captured Fort"
+			x: -0.2d
+			y: -8.6d
+		}
+		{
+			dependencies: ["370C8ECBD71B488E"]
+			description: ["The bandit leader is rather large..."]
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "darkages:textures/skills/unused/necromancer_blood_harvest.png"
+				}
+			}
+			id: "010B7965B6E5B186"
+			rewards: [{
+				id: "43DA7E8B558D61BE"
+				type: "xp"
+				xp: 100
+			}]
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "epicfight:iron_greatsword"
+					tag: {
+						Damage: 0
+					}
+				}
+				id: "7D16080640DBBAEF"
+				title: "Kill the Bandit Leader."
+				type: "custom"
+			}]
+			title: "Bandit Leader"
+			x: 2.2d
+			y: -7.6d
+		}
+		{
+			dependencies: ["010B7965B6E5B186"]
+			description: ["Now that I've killed the leader I need to find out where the wagon parts are hidden."]
+			id: "0B1E2F43DA02C0E1"
+			tasks: [{
+				icon: "iceandfire:lectern"
+				id: "4AF84113D5DCE5B4"
+				title: "Find the ledger."
+				type: "custom"
+			}]
+			title: "The Ledger"
+			x: 0.4d
+			y: -6.8d
+		}
+		{
+			dependencies: ["0B1E2F43DA02C0E1"]
+			description: ["I need to search for a chest containing the wagon parts."]
+			id: "1F3BC086A749CD2D"
+			tasks: [{
+				icon: "dragnlivestock:wagon_cover"
+				id: "7A1BD691A9C20A67"
+				title: "Search for the wagon parts."
+				type: "custom"
+			}]
+			title: "Wagon Parts"
+			x: -0.2d
+			y: -5.2d
+		}
+		{
+			dependencies: [
+				"1F3BC086A749CD2D"
+				"7A1BD691A9C20A67"
+			]
+			description: ["I should take the wagon parts I've found and craft a wagon."]
+			disable_toast: true
+			hide_until_deps_complete: true
+			id: "645293639B7F19F5"
+			tasks: [{
+				consume_items: false
+				id: "510799B5971D6B93"
+				item: {
+					Count: 1
+					id: "dragnlivestock:covered_wagon"
+					tag: {
+						type: 0
+					}
+				}
+				match_nbt: false
+				only_from_crafting: true
+				title: "Craft a wagon."
+				type: "item"
+			}]
+			x: 1.0d
+			y: -3.6d
+		}
+	]
+	subtitle: ["You're helping find what's left of the caravan."]
+	title: "&3Rusted Wagon"
+}

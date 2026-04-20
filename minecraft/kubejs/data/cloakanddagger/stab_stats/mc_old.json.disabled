@@ -1,0 +1,166 @@
+{
+    "epicfight:stone_greatsword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "epicfight:golden_greatsword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "epicfight:iron_greatsword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "epicfight:diamond_greatsword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "epicfight:netherite_greatsword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "epicfight:golden_dagger": {
+        "distracted": 1.5,
+        "unaware": 3.0
+    },
+    "epicfight:iron_dagger": {
+        "distracted": 1.5,
+        "unaware": 3.0
+    },
+    "epicfight:diamond_dagger": {
+        "distracted": 1.5,
+        "unaware": 3.0
+    },
+    "epicfight:netherite_dagger": {
+        "distracted": 1.5,
+        "unaware": 3.0
+    },
+    "darkages:copper_longsword": {
+        "distracted": 1,
+        "unaware": 2.0
+    },
+    "epicfight:golden_longsword": {
+        "distracted": 1,
+        "unaware": 2.0
+    },
+    "epicfight:iron_longsword": {
+        "distracted": 1,
+        "unaware": 2.0
+    },
+    "epicfight:diamond_longsword": {
+        "distracted": 1,
+        "unaware": 2.0
+    },
+    "epicfight:netherite_longsword": {
+        "distracted": 1,
+        "unaware": 2.0
+    },
+    "epicfight:stone_spear": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:golden_spear": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:iron_spear": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:diamond_spear": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:netherite_spear": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:golden_tachi": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:iron_tachi": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:diamond_tachi": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "epicfight:netherite_tachi": {
+        "distracted": 1.5,
+        "unaware": 2.5
+    },
+    "wom:golden_greataxe": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "wom:iron_greataxe": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "wom:diamond_greataxe": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "wom:netherite_greataxe": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "iceandfire:silver_sword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "overgeared:copper_sword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "overgeared:steel_sword": {
+        "distracted": 1,
+        "unaware": 1.5
+    },
+    "darkages:short_bow": {
+        "distracted": 1,
+        "unaware": 2.5
+    },
+    "darkages:hunting_bow": {
+        "distracted": 1,
+        "unaware": 2.0
+    },
+    "minecraft:bow": {
+        "distracted": 1,
+        "unaware": 1
+    },
+    "minecraft:crossbow": {
+        "distracted": 1,
+        "unaware": 1
+    },
+    "minecraft:diamond_sword": {
+        "distracted": 1.25,
+        "unaware": 1.5
+    },
+    "minecraft:golden_sword": {
+        "distracted": 1.25,
+        "unaware": 1.5
+    },
+    "minecraft:iron_sword": {
+        "distracted": 1.25,
+        "unaware": 1.5
+    },
+    "minecraft:netherite_sword": {
+        "distracted": 1.25,
+        "unaware": 1.5
+    },
+    "minecraft:stone_sword": {
+        "distracted": 1.25,
+        "unaware": 1.5
+    },
+    "minecraft:trident": {
+        "distracted": 1.1,
+        "unaware": 1.2
+    },
+    "minecraft:wooden_sword": {
+        "distracted": 1.25,
+        "unaware": 1.5
+    }
+}

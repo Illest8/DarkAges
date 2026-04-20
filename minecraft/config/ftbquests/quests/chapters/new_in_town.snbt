@@ -1,0 +1,283 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "square"
+	disable_toast: true
+	filename: "new_in_town"
+	group: "3499AF304C9E0F06"
+	hide_quest_until_deps_complete: true
+	icon: {
+		Count: 1
+		id: "supplementaries:bunting"
+		tag: {
+			Color: "blue"
+		}
+	}
+	id: "4333BC874E786DA3"
+	images: [{
+		dependency: "5349E9217BB2CBE4"
+		height: 10.0d
+		hover: ["Town Quests"]
+		image: "create:textures/gui/clipboard.png"
+		order: 1
+		rotation: 0.0d
+		width: 10.0d
+		x: -0.20000000000000018d
+		y: -6.2d
+	}]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			disable_toast: true
+			hide_until_deps_visible: false
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "minecraft:textures/map/decorations/taiga_village.png"
+				}
+			}
+			id: "5349E9217BB2CBE4"
+			invisible: true
+			rewards: [{
+				auto: "no_toast"
+				id: "7745A19F5B5C21EF"
+				type: "xp"
+				xp: 20
+			}]
+			shape: "circle"
+			size: 1.0d
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "minecraft:textures/mob_effect/speed.png"
+					}
+				}
+				id: "3CFC96242DAFEB63"
+				structure: "minecraft:village_plains"
+				title: "Travel to a town."
+				type: "structure"
+			}]
+			x: -4.440892098500626E-16d
+			y: -6.3d
+		}
+		{
+			can_repeat: false
+			dependencies: ["5349E9217BB2CBE4"]
+			description: [
+				"I might be able to get some good equipment from villagers."
+				""
+				"I should check out what they're selling."
+			]
+			disable_toast: true
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "darkages:item/coins"
+				}
+			}
+			id: "2E8D3BB6F33D7723"
+			optional: true
+			rewards: [{
+				id: "0E1252481A749C82"
+				type: "xp"
+				xp: 100
+			}]
+			shape: "circle"
+			size: 1.0d
+			tasks: [{
+				disable_toast: true
+				icon: "darkages:coin"
+				id: "5A6C4DB13DF895E4"
+				optional_task: true
+				stat: "minecraft:traded_with_villager"
+				title: "Trade 5 Times"
+				type: "stat"
+				value: 5
+			}]
+			x: -4.440892098500626E-16d
+			y: -4.5d
+		}
+		{
+			dependencies: ["5349E9217BB2CBE4"]
+			description: ["I should complete some of the bounties located in town square."]
+			disable_toast: true
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "bountiful:block/bountyboard"
+				}
+			}
+			id: "2351782577D6BF81"
+			optional: true
+			rewards: [{
+				id: "648F595F5467A5CF"
+				type: "xp"
+				xp: 20
+			}]
+			shape: "circle"
+			size: 1.0d
+			tasks: [{
+				count: 5L
+				icon: {
+					Count: 1
+					id: "bountiful:bounty"
+					tag: {
+						"bountiful:bounty_data": "{}"
+						"bountiful:bounty_info": "{}"
+					}
+				}
+				id: "4FD59BB8F2587EAF"
+				item: {
+					Count: 1
+					id: "bountiful:bounty"
+					tag: {
+						"bountiful:bounty_data": "{}"
+						"bountiful:bounty_info": "{}"
+					}
+				}
+				task_screen_only: true
+				title: "Complete Bounties"
+				type: "item"
+			}]
+			x: -1.8d
+			y: -6.2d
+		}
+		{
+			dependencies: ["5349E9217BB2CBE4"]
+			description: [
+				"I gain reputation from positive interactions with townsfolk."
+				""
+				"I should try to get my reputation to 250."
+			]
+			id: "03C2117481696F01"
+			optional: true
+			rewards: [{
+				id: "22CE3AE014B171C8"
+				type: "xp"
+				xp: 100
+			}]
+			shape: "circle"
+			tasks: [{
+				count: 250L
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "furtotemsmod:textures/totem/gold_seraphix.png"
+					}
+				}
+				id: "5CE827ADEEDC3AF1"
+				item: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "furtotemsmod:textures/totem/gold_seraphix.png"
+					}
+				}
+				optional_task: true
+				task_screen_only: true
+				title: "Reach 250 Reputation"
+				type: "item"
+			}]
+			x: 1.8d
+			y: -6.3d
+		}
+		{
+			dependencies: ["5349E9217BB2CBE4"]
+			description: ["Town contracts provide valueable abilities for the me to use in a town. I should go purchase a town contract from the Lord in the Town Castle."]
+			id: "2CE08E48103A50C2"
+			optional: true
+			rewards: [{
+				id: "2466DCC03AD276ED"
+				type: "xp"
+				xp: 50
+			}]
+			shape: "circle"
+			tasks: [{
+				icon: "darkages:contract"
+				id: "68D4C64AB7EDB96C"
+				item: "darkages:contract"
+				task_screen_only: true
+				title: "Purchase a Town Contract"
+				type: "item"
+			}]
+			x: -1.2000000000000004d
+			y: -7.699999999999999d
+		}
+		{
+			dependencies: ["5349E9217BB2CBE4"]
+			description: ["I can use a blueprint to view the population, buildings, and my reputation in the town I'm standing in."]
+			id: "3C8B5E51E175B0E6"
+			optional: true
+			rewards: [{
+				id: "54E57557D90A39A0"
+				type: "xp"
+				xp: 20
+			}]
+			shape: "circle"
+			tasks: [{
+				icon: "mca:blueprint"
+				id: "355BA398F777A842"
+				item: "mca:blueprint"
+				only_from_crafting: true
+				optional_task: true
+				title: "Craft a Blueprint"
+				type: "item"
+			}]
+			x: 1.4000000000000001d
+			y: -7.699999999999999d
+		}
+		{
+			dependencies: ["5349E9217BB2CBE4"]
+			id: "4673B4F44E897F3A"
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "cdmoveset:textures/gui/skills/weapon_innate/sword_slash.png"
+					}
+				}
+				id: "715D05CC8CE0E1A0"
+				item: "minecraft:bedrock"
+				task_screen_only: true
+				title: "Defend a Viking Raid"
+				type: "item"
+			}]
+			x: -1.4000000000000004d
+			y: -4.8999999999999995d
+		}
+		{
+			dependencies: ["5349E9217BB2CBE4"]
+			description: ["I need to acquire work and earn gold. I should speak to the Steward in the Town Castle to inquire about starting a profession."]
+			id: "7B4861BFB8C1B0C7"
+			optional: true
+			shape: "circle"
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "supplementaries:item/cartographers_quill"
+					}
+				}
+				id: "585273697B701C16"
+				item: "minecraft:bedrock"
+				task_screen_only: true
+				title: "Start a Profession"
+				type: "item"
+			}]
+			x: 1.4000000000000001d
+			y: -4.8999999999999995d
+		}
+	]
+	subtitle: ["You traveled to a town."]
+	title: "&3Town Quests"
+}

@@ -1,0 +1,22 @@
+{
+  "target": "darkages:merchant",
+  "properties": [
+    {
+      "property": "presets",
+      "presets": [
+        {
+          "preset": "darkages:merchant/verden_peasant",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "structure",
+              "structures": [
+                "darkages:overworld/verden"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+	always_invisible: true
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "plaaceholders"
+	group: "3D73B3C61F14CDAB"
+	id: "37F248073FF9E47B"
+	order_index: 7
+	quest_links: [ ]
+	quests: [{
+		id: "412E094C7FF81558"
+		invisible: true
+		optional: true
+		shape: "circle"
+		tasks: [{
+			icon: "minecraft:compass"
+			id: "42F68515B2A583F8"
+			structure: "darkages:overworld/verden"
+			title: "Travel to Verden"
+			type: "structure"
+		}]
+		x: -1.6d
+		y: -0.6d
+	}]
+	title: "Placeholders"
+}

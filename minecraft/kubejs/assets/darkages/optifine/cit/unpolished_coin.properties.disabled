@@ -1,0 +1,4 @@
+type=item
+items=darkages:coin
+nbt.Polished=false
+model=darkages:item/unpolished_coin

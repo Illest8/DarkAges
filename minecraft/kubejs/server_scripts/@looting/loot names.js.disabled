@@ -1,0 +1,54 @@
+LootJS.modifiers((event) => {   
+  // Load the JSON file containing the name data
+  let json = JsonIO.read('kubejs/data/darkages/loot_names.json');    
+
+  if (!json) {     
+    console.error('[LootJS] Failed to load loot_names.json!');     
+    return;   
+  }
+
+  function generateRandomNameForRarity(itemRarity) {     
+  let prefixOptions = [];     
+  let suffixOptions = json.suffixes;    
+
+  if (itemRarity === "ONE_HAND") {       
+    prefixOptions = json.oneHandedPrefixes;  
+  } else if (itemRarity === "TWO_HAND") {       
+    prefixOptions = json.twoHandedPrefixes;   
+  }
+
+  const includePrefix = Math.random() < 0.5;
+
+  const prefix = (includePrefix && prefixOptions.length > 0) 
+                 ? prefixOptions[Math.floor(Math.random() * prefixOptions.length)] 
+                 : '';
+
+  const suffix = suffixOptions[Math.floor(Math.random() * suffixOptions.length)];
+
+  return `${prefix ? prefix + ' ' : ''}${suffix}`;
+}
+
+
+  event.addLootTypeModifier(LootType.CHEST, LootType.ENTITY)     
+    .modifyLoot(ItemFilter.DAMAGEABLE, itemStack => {       
+      let randomName = '';       
+
+      if (itemStack.rarity === 'ONE_HAND') {        
+        randomName = generateRandomNameForRarity('ONE_HAND');
+      } else if (itemStack.rarity === 'TWO_HAND') {
+        randomName = generateRandomNameForRarity('TWO_HAND');       
+      }
+      else return itemStack;
+
+      itemStack.setHoverName(randomName)
+
+      let affixData = itemStack.nbt.affix_data
+        
+        if (affixData) {
+          affixData.remove('name')
+          return itemStack
+        }
+
+      return itemStack;     
+    }); 
+});

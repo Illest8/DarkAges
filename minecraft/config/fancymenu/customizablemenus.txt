@@ -1,0 +1,218 @@
+type = customizablemenus
+
+net.minecraft.client.gui.screens.OptionsScreen {
+}
+
+net.puffish.skillsmod.client.gui.SkillsScreen {
+}
+
+top.theillusivec4.curios.client.gui.CuriosScreenV2 {
+}
+
+net.minecraft.client.gui.screens.ChatScreen {
+}
+
+net.minecraft.client.gui.screens.WinScreen {
+}
+
+net.blay09.mods.hardcorerevival.client.KnockoutScreen {
+}
+
+io.ejekta.bountiful.client.BoardScreen {
+}
+
+net.minecraft.client.gui.screens.LevelLoadingScreen {
+}
+
+de.keksuccino.spiffyhud.customization.SpiffyOverlayScreen {
+}
+
+com.github.alexthe666.iceandfire.client.gui.bestiary.GuiBestiary {
+}
+
+com.mrcrayfish.configured.client.screen.ConfigScreen {
+}
+
+net.stirdrem.overgeared.screen.SteelSmithingAnvilScreen {
+}
+
+top.yourzi.dialog.ui.DialogScreen {
+}
+
+net.minecraft.client.gui.screens.DeathScreen {
+}
+
+net.minecraft.client.gui.screens.ReceivingLevelScreen {
+}
+
+sfiomn.legendarysurvivaloverhaul.client.screens.BodyHealthScreen {
+}
+
+net.minecraftforge.client.gui.ModListScreen {
+}
+
+net.minecraft.client.gui.screens.achievement.StatsScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.CraftingScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.SmithingScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.StonecutterScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.GrindstoneScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.ContainerScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.BlastFurnaceScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.AnvilScreen {
+}
+
+net.minecraft.client.gui.screens.packs.PackSelectionScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.MerchantScreen {
+}
+
+vectorwing.farmersdelight.client.gui.CookingPotScreen {
+}
+
+vectorwing.farmersdelight.client.gui.HangingCanvasSignEditScreen {
+}
+
+sfiomn.legendarysurvivaloverhaul.client.screens.SewingTableScreen {
+}
+
+sfiomn.legendarysurvivaloverhaul.client.screens.ThermalScreen {
+}
+
+dev.shadowsoffire.apotheosis.village.fletching.FletchingScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.FurnaceScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.SmokerScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.CartographyTableScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.LoomScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.BeaconScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.EnchantmentScreen {
+}
+
+io.redspace.ironsspellbooks.gui.scroll_forge.ScrollForgeScreen {
+}
+
+dev.shadowsoffire.apotheosis.adventure.affix.reforging.ReforgingScreen {
+}
+
+io.redspace.ironsspellbooks.gui.arcane_anvil.ArcaneAnvilScreen {
+}
+
+io.redspace.ironsspellbooks.gui.inscription_table.InscriptionTableScreen {
+}
+
+vazkii.patchouli.client.book.gui.GuiBookLanding {
+}
+
+vazkii.patchouli.client.book.gui.GuiBookCategory {
+}
+
+vazkii.patchouli.client.book.gui.GuiBookEntry {
+}
+
+vazkii.patchouli.client.book.gui.GuiBookHistory {
+}
+
+vazkii.patchouli.client.book.gui.GuiBookWriter {
+}
+
+net.minecraft.client.gui.screens.inventory.DispenserScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.HopperScreen {
+}
+
+org.violetmoon.quark.content.automation.client.screen.CrafterScreen {
+}
+
+yesman.epicfight.client.gui.screen.SkillBookScreen {
+}
+
+yesman.epicfight.client.gui.screen.SkillEditScreen {
+}
+
+net.minecraft.client.gui.screens.TitleScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.InventoryScreen {
+}
+
+net.minecraft.client.gui.screens.ConfirmScreen {
+}
+
+com.talhanation.smallships.client.gui.screens.inventory.ShipContainerScreen {
+}
+
+com.dragn0007.dragnlivestock.client.gui.DefaultWagonScreen {
+}
+
+dev.ftb.mods.ftblibrary.ui.ScreenWrapper {
+}
+
+net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen {
+}
+
+net.minecraft.client.gui.screens.worldselection.CreateWorldScreen {
+}
+
+net.minecraft.client.gui.screens.GenericDirtMessageScreen {
+}
+
+net.minecraft.client.gui.screens.ProgressScreen {
+}
+
+net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen {
+}
+
+net.minecraft.client.gui.screens.worldselection.SelectWorldScreen {
+}
+
+net.minecraft.client.gui.screens.EditServerScreen {
+}
+
+net.irisshaders.iris.gui.screen.ShaderPackScreen {
+}
+
+yesman.epicfight.client.gui.datapack.screen.SelectAnimationScreen {
+}
+
+de.keksuccino.drippyloadingscreen.customization.DrippyOverlayScreen {
+}
+
+net.minecraft.client.gui.screens.SoundOptionsScreen {
+}
+
+com.tiviacz.travelersbackpack.client.screens.BackpackScreen {
+}
+
+dev.emi.emi.screen.RecipeScreen {
+}
+
+net.minecraft.client.gui.screens.PauseScreen {
+}
+

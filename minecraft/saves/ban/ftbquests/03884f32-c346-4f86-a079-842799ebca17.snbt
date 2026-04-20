@@ -1,0 +1,12 @@
+{
+	version: 1
+	uuid: "03884f32c3464f86a079842799ebca17"
+	name: "Takas#03884f32"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	player_data: { }
+}

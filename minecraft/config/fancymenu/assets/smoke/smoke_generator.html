@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyrim Smoke Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 80vh;
+            overflow-y: auto;
+            min-width: 200px;
+        }
+        .controls h3 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .controls label {
+            display: block;
+            margin: 8px 0;
+            font-size: 12px;
+        }
+        .controls input[type="range"] {
+            margin-left: 10px;
+            width: 120px;
+        }
+        .controls input[type="color"] {
+            margin-left: 10px;
+            width: 60px;
+            height: 30px;
+            border: 1px solid #666;
+            border-radius: 4px;
+            background: #333;
+            cursor: pointer;
+        }
+        .controls input[type="checkbox"] {
+            margin-left: 10px;
+        }
+        .export-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+        }
+        .export-section button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100%;
+        }
+        .export-section button:hover {
+            background: #45a049;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h3>Smoke Controls</h3>
+        <label>Speed: <input type="range" id="speed" min="0.1" max="2" step="0.1" value="0.3"></label>
+        <label>Scale: <input type="range" id="scale" min="1" max="4" step="0.1" value="2.2"></label>
+        <label>Shift: <input type="range" id="shift" min="0.1" max="1" step="0.1" value="0.3"></label>
+        <label>Amplitude: <input type="range" id="amplitude" min="0.1" max="1.5" step="0.1" value="0.8"></label>
+        <label>Pixel Size: <input type="range" id="pixelSize" min="1" max="20" step="1" value="4"></label>
+        
+        <h3>Shape Controls</h3>
+        <label>Rotation: <input type="range" id="rotation" min="0" max="360" step="1" value="0"></label>
+        <label>Right Dissipation: <input type="range" id="rightFadeStart" min="0" max="100" step="5" value="66"></label>
+        <label>Top Dissipation: <input type="range" id="verticalHeight" min="0" max="100" step="5" value="33"></label>
+        <label>Thickness: <input type="range" id="thickness" min="0.1" max="3" step="0.1" value="1"></label>
+        
+        <h3>Appearance</h3>
+        <label>Smoke Color: <input type="color" id="smokeColor" value="#7a8fa5"></label>
+        <label>Transparent Background: <input type="checkbox" id="transparentBg"></label>
+        <label>Background Color: <input type="color" id="bgColor" value="#050509"></label>
+        
+        <div class="export-section">
+            <button id="copySettings">Copy Current Settings</button>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">Copied to clipboard!</div>
+
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const gl = canvas.getContext('webgl');
+
+        if (!gl) {
+            alert('WebGL not supported');
+        }
+
+        const vertexShaderSource = `
+            attribute vec2 a_position;
+            varying vec2 v_uv;
+            
+            void main() {
+                v_uv = a_position * 0.5 + 0.5;
+                gl_Position = vec4(a_position, 0.0, 1.0);
+            }
+        `;
+
+        const fragmentShaderSource = `
+            precision mediump float;
+            varying vec2 v_uv;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            uniform float u_speed;
+            uniform float u_scale;
+            uniform float u_shift;
+            uniform float u_amplitude;
+            uniform float u_pixelSize;
+            uniform float u_rotation;
+            uniform float u_rightDissipation;
+            uniform float u_topDissipation;
+            uniform float u_thickness;
+            uniform vec3 u_smokeColor;
+
+            vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
+            vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
+            
+            float snoise(vec3 v){ 
+                const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+                const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+                
+                vec3 i = floor(v + dot(v, C.yyy));
+                vec3 x0 = v - i + dot(i, C.xxx);
+                
+                vec3 g = step(x0.yzx, x0.xyz);
+                vec3 l = 1.0 - g;
+                vec3 i1 = min(g.xyz, l.zxy);
+                vec3 i2 = max(g.xyz, l.zxy);
+                
+                vec3 x1 = x0 - i1 + 1.0 * C.xxx;
+                vec3 x2 = x0 - i2 + 2.0 * C.xxx;
+                vec3 x3 = x0 - 1.0 + 3.0 * C.xxx;
+                
+                i = mod(i, 289.0);
+                vec4 p = permute(permute(permute(
+                    i.z + vec4(0.0, i1.z, i2.z, 1.0))
+                    + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+                    + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+                
+                float n_ = 1.0/7.0;
+                vec3 ns = n_ * D.wyz - D.xzx;
+                vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+                vec4 x_ = floor(j * ns.z);
+                vec4 y_ = floor(j - 7.0 * x_);
+                vec4 x = x_ * ns.x + ns.yyyy;
+                vec4 y = y_ * ns.x + ns.yyyy;
+                vec4 h = 1.0 - abs(x) - abs(y);
+                vec4 b0 = vec4(x.xy, y.xy);
+                vec4 b1 = vec4(x.zw, y.zw);
+                vec4 s0 = floor(b0) * 2.0 + 1.0;
+                vec4 s1 = floor(b1) * 2.0 + 1.0;
+                vec4 sh = -step(h, vec4(0.0));
+                vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+                vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+                vec3 p0 = vec3(a0.xy, h.x);
+                vec3 p1 = vec3(a0.zw, h.y);
+                vec3 p2 = vec3(a1.xy, h.z);
+                vec3 p3 = vec3(a1.zw, h.w);
+                
+                vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+                p0 *= norm.x;
+                p1 *= norm.y;
+                p2 *= norm.z;
+                p3 *= norm.w;
+                
+                vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+                m = m * m;
+                return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+            }
+
+            float fbm(in vec3 st) {
+                float value = 0.0;
+                float amplitude = u_amplitude;
+                
+                for (int i = 0; i < 4; i++) {
+                    value += amplitude * snoise(st);
+                    st *= 2.0;
+                    amplitude *= 0.5;
+                }
+                return value;
+            }
+
+            mat2 rotate(float angle) {
+                float c = cos(angle);
+                float s = sin(angle);
+                return mat2(c, -s, s, c);
+            }
+
+            void main() {
+                vec2 pixelatedUV = floor(v_uv * u_resolution / u_pixelSize) * u_pixelSize / u_resolution;
+                vec2 fragCoord = pixelatedUV * u_resolution;
+                vec2 uv = (fragCoord - 0.5 * u_resolution.xy) / u_resolution.y;
+                
+                float rotationRad = u_rotation * 3.14159265359 / 180.0;
+                uv = rotate(rotationRad) * uv;
+                
+                float topMask;
+                if (u_topDissipation <= 0.0) {
+                    topMask = 0.0;
+                } else if (u_topDissipation >= 100.0) {
+                    topMask = 1.0;
+                } else {
+                    float dissipationHeight = u_topDissipation / 100.0;
+                    float fadeStart = 1.0 - dissipationHeight;
+                    float fadeEnd = 1.0;
+                    
+                    if (pixelatedUV.y <= fadeStart) {
+                        topMask = 1.0;
+                    } else if (pixelatedUV.y >= fadeEnd) {
+                        topMask = 0.0;
+                    } else {
+                        topMask = 1.0 - ((pixelatedUV.y - fadeStart) / (fadeEnd - fadeStart));
+                    }
+                }
+                
+                if (topMask <= 0.0) {
+                    gl_FragColor = vec4(0.0);
+                    return;
+                }
+                
+                float time = u_time * u_speed;
+                float plainY = uv.y + 0.5;
+                uv *= u_scale;
+                
+                float mag = 0.2;
+                float n = fbm(vec3(uv, time * 0.2));
+                n = fbm(vec3(uv - time * 0.2, n * mag + time * 0.1));
+                n = fbm(vec3(uv - time * 0.4, n * mag + time * 0.2));
+                
+                n *= u_thickness;
+                n = n * 0.5 + 0.5;
+                n = pow(n, u_shift + plainY * (1.0 - u_shift));
+                n *= 1.0 - plainY;
+                n *= u_thickness;
+                n *= topMask;
+                
+                float rightFadeStart = u_rightDissipation / 100.0;
+                float rightMask;
+                if (u_rightDissipation <= 0.0) {
+                    rightMask = 0.0;
+                } else if (u_rightDissipation >= 100.0) {
+                    rightMask = 1.0;
+                } else {
+                    rightMask = 1.0 - smoothstep(rightFadeStart, 1.0, pixelatedUV.x);
+                }
+                n *= rightMask;
+                
+                vec3 color = u_smokeColor * n;
+                
+                float variation = fbm(vec3(uv * 0.5, time * 0.1));
+                color *= 0.8 + variation * 0.4;
+                
+                gl_FragColor = vec4(color, n * 0.8);
+            }
+        `;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            
+            return shader;
+        }
+
+        function createProgram(gl, vertexShader, fragmentShader) {
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.error('Program link error:', gl.getProgramInfoLog(program));
+                gl.deleteProgram(program);
+                return null;
+            }
+            
+            return program;
+        }
+
+        const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+        const program = createProgram(gl, vertexShader, fragmentShader);
+
+        const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+        const timeUniformLocation = gl.getUniformLocation(program, 'u_time');
+        const resolutionUniformLocation = gl.getUniformLocation(program, 'u_resolution');
+        const speedUniformLocation = gl.getUniformLocation(program, 'u_speed');
+        const scaleUniformLocation = gl.getUniformLocation(program, 'u_scale');
+        const shiftUniformLocation = gl.getUniformLocation(program, 'u_shift');
+        const amplitudeUniformLocation = gl.getUniformLocation(program, 'u_amplitude');
+        const pixelSizeUniformLocation = gl.getUniformLocation(program, 'u_pixelSize');
+        const rotationUniformLocation = gl.getUniformLocation(program, 'u_rotation');
+        const rightDissipationUniformLocation = gl.getUniformLocation(program, 'u_rightDissipation');
+        const topDissipationUniformLocation = gl.getUniformLocation(program, 'u_topDissipation');
+        const thicknessUniformLocation = gl.getUniformLocation(program, 'u_thickness');
+        const smokeColorUniformLocation = gl.getUniformLocation(program, 'u_smokeColor');
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1, -1,
+             1, -1,
+            -1,  1,
+             1,  1,
+        ]), gl.STATIC_DRAW);
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function hexToRgb(hex) {
+            const r = parseInt(hex.slice(1, 3), 16) / 255;
+            const g = parseInt(hex.slice(3, 5), 16) / 255;
+            const b = parseInt(hex.slice(5, 7), 16) / 255;
+            return [r, g, b];
+        }
+
+        const speedControl = document.getElementById('speed');
+        const scaleControl = document.getElementById('scale');
+        const shiftControl = document.getElementById('shift');
+        const amplitudeControl = document.getElementById('amplitude');
+        const pixelSizeControl = document.getElementById('pixelSize');
+        const rotationControl = document.getElementById('rotation');
+        const rightDissipationControl = document.getElementById('rightFadeStart');
+        const topDissipationControl = document.getElementById('verticalHeight');
+        const thicknessControl = document.getElementById('thickness');
+        const smokeColorControl = document.getElementById('smokeColor');
+        const transparentBgControl = document.getElementById('transparentBg');
+        const bgColorControl = document.getElementById('bgColor');
+        const copySettingsButton = document.getElementById('copySettings');
+        const notification = document.getElementById('notification');
+
+        function generateCleanHTML() {
+            const settings = {
+                speed: parseFloat(speedControl.value),
+                scale: parseFloat(scaleControl.value),
+                shift: parseFloat(shiftControl.value),
+                amplitude: parseFloat(amplitudeControl.value),
+                pixelSize: parseFloat(pixelSizeControl.value),
+                rotation: parseFloat(rotationControl.value),
+                rightDissipation: parseFloat(rightDissipationControl.value),
+                topDissipation: parseFloat(topDissipationControl.value),
+                thickness: parseFloat(thicknessControl.value),
+                smokeColor: smokeColorControl.value,
+                transparentBg: transparentBgControl.checked,
+                bgColor: bgColorControl.value
+            };
+
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyrim Smoke Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: ${settings.transparentBg ? 'transparent' : settings.bgColor};
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const gl = canvas.getContext('webgl');
+
+        if (!gl) {
+            alert('WebGL not supported');
+        }
+
+        const vertexShaderSource = \`
+            attribute vec2 a_position;
+            varying vec2 v_uv;
+            
+            void main() {
+                v_uv = a_position * 0.5 + 0.5;
+                gl_Position = vec4(a_position, 0.0, 1.0);
+            }
+        \`;
+
+        const fragmentShaderSource = \`
+            precision mediump float;
+            varying vec2 v_uv;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            uniform vec3 u_smokeColor;
+
+            vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
+            vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
+            
+            float snoise(vec3 v){ 
+                const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+                const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+                
+                vec3 i = floor(v + dot(v, C.yyy));
+                vec3 x0 = v - i + dot(i, C.xxx);
+                
+                vec3 g = step(x0.yzx, x0.xyz);
+                vec3 l = 1.0 - g;
+                vec3 i1 = min(g.xyz, l.zxy);
+                vec3 i2 = max(g.xyz, l.zxy);
+                
+                vec3 x1 = x0 - i1 + 1.0 * C.xxx;
+                vec3 x2 = x0 - i2 + 2.0 * C.xxx;
+                vec3 x3 = x0 - 1.0 + 3.0 * C.xxx;
+                
+                i = mod(i, 289.0);
+                vec4 p = permute(permute(permute(
+                    i.z + vec4(0.0, i1.z, i2.z, 1.0))
+                    + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+                    + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+                
+                float n_ = 1.0/7.0;
+                vec3 ns = n_ * D.wyz - D.xzx;
+                vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+                vec4 x_ = floor(j * ns.z);
+                vec4 y_ = floor(j - 7.0 * x_);
+                vec4 x = x_ * ns.x + ns.yyyy;
+                vec4 y = y_ * ns.x + ns.yyyy;
+                vec4 h = 1.0 - abs(x) - abs(y);
+                vec4 b0 = vec4(x.xy, y.xy);
+                vec4 b1 = vec4(x.zw, y.zw);
+                vec4 s0 = floor(b0) * 2.0 + 1.0;
+                vec4 s1 = floor(b1) * 2.0 + 1.0;
+                vec4 sh = -step(h, vec4(0.0));
+                vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+                vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+                vec3 p0 = vec3(a0.xy, h.x);
+                vec3 p1 = vec3(a0.zw, h.y);
+                vec3 p2 = vec3(a1.xy, h.z);
+                vec3 p3 = vec3(a1.zw, h.w);
+                
+                vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+                p0 *= norm.x;
+                p1 *= norm.y;
+                p2 *= norm.z;
+                p3 *= norm.w;
+                
+                vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+                m = m * m;
+                return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+            }
+
+            float fbm(in vec3 st) {
+                float value = 0.0;
+                float amplitude = ${settings.amplitude.toFixed(2)};
+                
+                for (int i = 0; i < 4; i++) {
+                    value += amplitude * snoise(st);
+                    st *= 2.0;
+                    amplitude *= 0.5;
+                }
+                return value;
+            }
+
+            mat2 rotate(float angle) {
+                float c = cos(angle);
+                float s = sin(angle);
+                return mat2(c, -s, s, c);
+            }
+
+            void main() {
+                vec2 pixelatedUV = floor(v_uv * u_resolution / ${settings.pixelSize.toFixed(1)}) * ${settings.pixelSize.toFixed(1)} / u_resolution;
+                vec2 fragCoord = pixelatedUV * u_resolution;
+                vec2 uv = (fragCoord - 0.5 * u_resolution.xy) / u_resolution.y;
+                
+                float rotationRad = ${settings.rotation.toFixed(1)} * 3.14159265359 / 180.0;
+                uv = rotate(rotationRad) * uv;
+                
+                float topMask;
+                if (${settings.topDissipation.toFixed(1)} <= 0.0) {
+                    topMask = 0.0;
+                } else if (${settings.topDissipation.toFixed(1)} >= 100.0) {
+                    topMask = 1.0;
+                } else {
+                    float dissipationHeight = ${settings.topDissipation.toFixed(1)} / 100.0;
+                    float fadeStart = 1.0 - dissipationHeight;
+                    float fadeEnd = 1.0;
+                    
+                    if (pixelatedUV.y <= fadeStart) {
+                        topMask = 1.0;
+                    } else if (pixelatedUV.y >= fadeEnd) {
+                        topMask = 0.0;
+                    } else {
+                        topMask = 1.0 - ((pixelatedUV.y - fadeStart) / (fadeEnd - fadeStart));
+                    }
+                }
+                
+                if (topMask <= 0.0) {
+                    gl_FragColor = vec4(0.0);
+                    return;
+                }
+                
+                float time = u_time * ${settings.speed.toFixed(1)};
+                float plainY = uv.y + 0.5;
+                uv *= ${settings.scale.toFixed(1)};
+                
+                float mag = 0.2;
+                float n = fbm(vec3(uv, time * 0.2));
+                n = fbm(vec3(uv - time * 0.2, n * mag + time * 0.1));
+                n = fbm(vec3(uv - time * 0.4, n * mag + time * 0.2));
+                
+                n *= ${settings.thickness.toFixed(1)};
+                n = n * 0.5 + 0.5;
+                n = pow(n, ${settings.shift.toFixed(1)} + plainY * (1.0 - ${settings.shift.toFixed(1)}));
+                n *= 1.0 - plainY;
+                n *= ${settings.thickness.toFixed(1)};
+                n *= topMask;
+                
+                float rightFadeStart = ${settings.rightDissipation.toFixed(1)} / 100.0;
+                float rightMask;
+                if (${settings.rightDissipation.toFixed(1)} <= 0.0) {
+                    rightMask = 0.0;
+                } else if (${settings.rightDissipation.toFixed(1)} >= 100.0) {
+                    rightMask = 1.0;
+                } else {
+                    rightMask = 1.0 - smoothstep(rightFadeStart, 1.0, pixelatedUV.x);
+                }
+                n *= rightMask;
+                
+                vec3 color = u_smokeColor * n;
+                
+                float variation = fbm(vec3(uv * 0.5, time * 0.1));
+                color *= 0.8 + variation * 0.4;
+                
+                gl_FragColor = vec4(color, n * 0.8);
+            }
+        \`;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            
+            return shader;
+        }
+
+        function createProgram(gl, vertexShader, fragmentShader) {
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.error('Program link error:', gl.getProgramInfoLog(program));
+                gl.deleteProgram(program);
+                return null;
+            }
+            
+            return program;
+        }
+
+        const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+        const program = createProgram(gl, vertexShader, fragmentShader);
+
+        const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+        const timeUniformLocation = gl.getUniformLocation(program, 'u_time');
+        const resolutionUniformLocation = gl.getUniformLocation(program, 'u_resolution');
+        const smokeColorUniformLocation = gl.getUniformLocation(program, 'u_smokeColor');
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1, -1,
+             1, -1,
+            -1,  1,
+             1,  1,
+        ]), gl.STATIC_DRAW);
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let startTime = null;
+        
+        function render(time) {
+            if (startTime === null) startTime = time;
+            const elapsedTime = (time - startTime) * 0.001;
+
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+            ${settings.transparentBg ? 
+                'gl.clearColor(0.0, 0.0, 0.0, 0.0);' : 
+                `const bgR = parseInt("${settings.bgColor}".slice(1, 3), 16) / 255;
+                const bgG = parseInt("${settings.bgColor}".slice(3, 5), 16) / 255;
+                const bgB = parseInt("${settings.bgColor}".slice(5, 7), 16) / 255;
+                gl.clearColor(bgR, bgG, bgB, 1.0);`
+            }
+            gl.clear(gl.COLOR_BUFFER_BIT);
+
+            gl.useProgram(program);
+
+            gl.uniform1f(timeUniformLocation, elapsedTime);
+            gl.uniform2f(resolutionUniformLocation, canvas.width, canvas.height);
+            
+            const smokeR = parseInt("${settings.smokeColor}".slice(1, 3), 16) / 255;
+            const smokeG = parseInt("${settings.smokeColor}".slice(3, 5), 16) / 255;
+            const smokeB = parseInt("${settings.smokeColor}".slice(5, 7), 16) / 255;
+            gl.uniform3f(smokeColorUniformLocation, smokeR, smokeG, smokeB);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.enableVertexAttribArray(positionAttributeLocation);
+            gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+            requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
+    <\/script>
+</body>
+</html>`;
+        }
+
+        async function copyToClipboard() {
+            try {
+                const htmlCode = generateCleanHTML();
+                await navigator.clipboard.writeText(htmlCode);
+                showNotification();
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = generateCleanHTML();
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showNotification();
+            }
+        }
+
+        function showNotification() {
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        copySettingsButton.addEventListener('click', copyToClipboard);
+
+        let startTime = null;
+        
+        function render(time) {
+            if (startTime === null) startTime = time;
+            const elapsedTime = (time - startTime) * 0.001;
+
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+            if (transparentBgControl.checked) {
+                gl.clearColor(0.0, 0.0, 0.0, 0.0);
+            } else {
+                const [bgR, bgG, bgB] = hexToRgb(bgColorControl.value);
+                gl.clearColor(bgR, bgG, bgB, 1.0);
+            }
+            gl.clear(gl.COLOR_BUFFER_BIT);
+
+            gl.useProgram(program);
+
+            gl.uniform1f(timeUniformLocation, elapsedTime);
+            gl.uniform2f(resolutionUniformLocation, canvas.width, canvas.height);
+            gl.uniform1f(speedUniformLocation, parseFloat(speedControl.value));
+            gl.uniform1f(scaleUniformLocation, parseFloat(scaleControl.value));
+            gl.uniform1f(shiftUniformLocation, parseFloat(shiftControl.value));
+            gl.uniform1f(amplitudeUniformLocation, parseFloat(amplitudeControl.value));
+            gl.uniform1f(pixelSizeUniformLocation, parseFloat(pixelSizeControl.value));
+            gl.uniform1f(rotationUniformLocation, parseFloat(rotationControl.value));
+            gl.uniform1f(rightDissipationUniformLocation, parseFloat(rightDissipationControl.value));
+            gl.uniform1f(topDissipationUniformLocation, parseFloat(topDissipationControl.value));
+            gl.uniform1f(thicknessUniformLocation, parseFloat(thicknessControl.value));
+            
+            const [smokeR, smokeG, smokeB] = hexToRgb(smokeColorControl.value);
+            gl.uniform3f(smokeColorUniformLocation, smokeR, smokeG, smokeB);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.enableVertexAttribArray(positionAttributeLocation);
+            gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+            requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
+    </script>
+</body>
+</html>

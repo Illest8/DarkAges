@@ -1,0 +1,153 @@
+{
+	autofocus_id: "2C9825E26EDCC627"
+	default_hide_dependency_lines: false
+	default_quest_shape: "square"
+	filename: "prison"
+	group: ""
+	hide_quest_details_until_startable: true
+	hide_quest_until_deps_complete: true
+	hide_quest_until_deps_visible: true
+	icon: "minecraft:iron_bars"
+	id: "77687AB519399C5F"
+	images: [{
+		height: 10.0d
+		image: "create:textures/gui/clipboard.png"
+		order: 1
+		rotation: 0.0d
+		width: 10.0d
+		x: 0.2d
+		y: -6.6d
+	}]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"You woke up in prison."
+				""
+				"A guard has handed you a pickaxe and instructed you to mine stone."
+			]
+			disable_toast: true
+			icon: "minecraft:iron_bars"
+			id: "6110A3441C5CEFED"
+			invisible: true
+			tasks: [{
+				id: "73AD96A5BA02C1EE"
+				structure: "darkages:overworld/prison"
+				type: "structure"
+			}]
+			title: "Prison"
+			x: 0.2d
+			y: -8.6d
+		}
+		{
+			dependencies: ["6110A3441C5CEFED"]
+			description: ["There's a chest in my prison cell. I should take the warm clothes."]
+			disable_toast: true
+			icon: "quark:spruce_chest"
+			id: "0B0F21F9F1CACA98"
+			optional: true
+			rewards: [{
+				auto: "no_toast"
+				id: "1981729A5840DA1D"
+				type: "xp"
+				xp: 10
+			}]
+			shape: "circle"
+			tasks: [{
+				icon: "quark:spruce_chest"
+				id: "3A6A79447190D1AA"
+				tags: ["kjs"]
+				title: "Find Warm Clothes"
+				type: "custom"
+			}]
+			x: 2.0d
+			y: -8.6d
+		}
+		{
+			dependencies: ["5E75468A9EBEE5A0"]
+			description: ["I've been given a pickaxe to mine stone."]
+			disable_toast: true
+			icon: {
+				Count: 1
+				id: "minecraft:wooden_pickaxe"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "2C9825E26EDCC627"
+			tags: ["kjs"]
+			tasks: [{
+				count: 10L
+				id: "33FAF5E476D5B273"
+				item: "minecraft:stone"
+				task_screen_only: true
+				title: "Mine 10 Stone"
+				type: "item"
+			}]
+			title: "Mine Stone"
+			x: 0.2d
+			y: -5.8d
+		}
+		{
+			dependencies: ["2C9825E26EDCC627"]
+			dependency_requirement: "one_completed"
+			description: ["I should speak to the warden upstairs about my release."]
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "darkages:icons/chat"
+				}
+			}
+			id: "06556EC1F36A6D8C"
+			max_completable_dependents: 1
+			min_required_dependencies: 1
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "darkages:icons/chat"
+					}
+				}
+				id: "5AFF5891409AD352"
+				title: "Speak to the warden."
+				type: "custom"
+			}]
+			title: "Speak to the warden."
+			x: 0.2d
+			y: -4.4d
+		}
+		{
+			dependencies: ["6110A3441C5CEFED"]
+			description: ["Speak to the other prisoner."]
+			id: "5E75468A9EBEE5A0"
+			rewards: [{
+				auto: "invisible"
+				id: "0FDA3507562B592A"
+				item: {
+					Count: 1
+					id: "minecraft:wooden_pickaxe"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			tasks: [{
+				icon: "minecraft:chain"
+				id: "2E32985B86A217A4"
+				title: "Speak to the other prisoner."
+				type: "custom"
+			}]
+			title: "Prisoner"
+			x: 0.2d
+			y: -7.2d
+		}
+	]
+	require_sequential_tasks: true
+	subtitle: ["Escape prison"]
+	tags: ["custom_task_id"]
+	title: "&6Prison"
+}
