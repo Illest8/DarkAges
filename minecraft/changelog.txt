@@ -1,3 +1,4 @@
+﻿- Added Update Checker
 - Added stealth back to tooltip
 - Added Resurgence, AOE Revive Spell
 - Reduced Blood Slash power from 1 -> 0.5
