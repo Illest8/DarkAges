@@ -15,6 +15,8 @@ ClientEvents.tick(event => {
   let reload = false;
   let restart = false;
 
+  content.file_locations.push('version.txt')
+
   content.file_locations.forEach(location => {
     let url = githubPrefix + location;
 
