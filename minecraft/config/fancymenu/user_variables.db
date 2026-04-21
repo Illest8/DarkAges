@@ -13,6 +13,12 @@ variable {
 }
 
 variable {
+  name = update_progress
+  value = Downloading config/apotheosis/adventure.cfg (100%)
+  reset_on_launch = false
+}
+
+variable {
   name = limbDamage
   value = 0.0
   reset_on_launch = false
@@ -49,6 +55,12 @@ variable {
 }
 
 variable {
+  name = update_start
+  value = 0
+  reset_on_launch = false
+}
+
+variable {
   name = world_create_difficulty
   value = normal
   reset_on_launch = false
@@ -56,7 +68,7 @@ variable {
 
 variable {
   name = mode
-  value = epicfight
+  value = vanilla
   reset_on_launch = false
 }
 
@@ -73,14 +85,26 @@ variable {
 }
 
 variable {
+  name = update_progess
+  value = Complete.
+  reset_on_launch = false
+}
+
+variable {
   name = era
-  value = attrition
+  value = dark_ages
   reset_on_launch = false
 }
 
 variable {
   name = stats
   value = 0.0
+  reset_on_launch = false
+}
+
+variable {
+  name = placerholder
+  value = kubejs/assets/darkages.png%n%kubejs/data/darkages/recipes/stone_axe.json%n%kubejs/data/darkages/recipes/stone_pickaxe.json
   reset_on_launch = false
 }
 
@@ -92,13 +116,19 @@ variable {
 
 variable {
   name = temperature
-  value = 7
+  value = 12
   reset_on_launch = false
 }
 
 variable {
   name = tutorial
   value = guidebook
+  reset_on_launch = false
+}
+
+variable {
+  name = placeholder
+  value = 
   reset_on_launch = false
 }
 
@@ -110,7 +140,7 @@ variable {
 
 variable {
   name = statStamina
-  value = 15.0
+  value = 19.0
   reset_on_launch = false
 }
 
@@ -122,7 +152,7 @@ variable {
 
 variable {
   name = tempcategory
-  value = cold
+  value = fine
   reset_on_launch = false
 }
 
@@ -134,7 +164,7 @@ variable {
 
 variable {
   name = level
-  value = 0
+  value = 33
   reset_on_launch = false
 }
 
@@ -146,7 +176,7 @@ variable {
 
 variable {
   name = update_check
-  value = 
+  value = true
   reset_on_launch = true
 }
 
