@@ -48,7 +48,7 @@ ClientEvents.tick(event => {
       Client.player.tell('This update changed some textures. §6Reload your assets (F3+T).')
     }
     if (reload) {
-      Client.player.tell('This update changed some data. §6Reload your world to see these changes!.')
+      Client.player.tell('This update changed some data. §6Reload your world to see these changes!')
     }
   }
   else {
