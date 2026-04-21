@@ -14,7 +14,7 @@ variable {
 
 variable {
   name = update_progress
-  value = Downloading kubejs/server_scripts/@xp/changed.js (100%)
+  value = Downloading changelog.txt (100%)
   reset_on_launch = false
 }
 
@@ -38,7 +38,7 @@ variable {
 
 variable {
   name = stamina
-  value = 1.0
+  value = 0.4894736440558183
   reset_on_launch = false
 }
 
@@ -80,7 +80,7 @@ variable {
 
 variable {
   name = currentStamina
-  value = 19.0
+  value = 9.0
   reset_on_launch = false
 }
 
@@ -176,7 +176,7 @@ variable {
 
 variable {
   name = world_create_cheats
-  value = on
+  value = off
   reset_on_launch = false
 }
 
