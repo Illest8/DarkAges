@@ -1,4 +1,4 @@
-﻿- Added Resurgence spell recipe
+﻿- Showcase
 - Added Update Checker
 - Added stealth back to tooltip
 - Added Resurgence, AOE Revive Spell
