@@ -1,4 +1,5 @@
-﻿- Showcase
+﻿- Fixed husk loot table
+- Showcase
 - Added Update Checker
 - Added stealth back to tooltip
 - Added Resurgence, AOE Revive Spell
