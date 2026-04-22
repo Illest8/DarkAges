@@ -1,6 +1,4 @@
-﻿- Added War to the discord
-- Fixed husk loot table
-- Showcase
+﻿- Fixed husk loot table
 - Added Update Checker
 - Added stealth back to tooltip
 - Added Resurgence, AOE Revive Spell
